@@ -1,0 +1,22 @@
+ROHIT NAIR
+B.Tech Information Technology (2022-2026) | CGPA 8.6
+rohit.example@email.com | Pune, India
+
+PROJECTS
+- Built a inventory dashboard in React and TypeScript consuming 12 REST endpoints, with
+  loading and error states handled through React Query. Cut page load from 4.1s to 1.3s.
+- Developed a Next.js portfolio site with 94 Lighthouse performance score.
+- Wrote 48 unit tests with Jest and React Testing Library for the dashboard components,
+  taking coverage from 31% to 78%.
+
+INTERNSHIP
+Frontend Intern, Meridian Labs, May 2025 - July 2025
+- Shipped 9 reusable React components used across 3 internal products.
+- Reviewed 30+ pull requests and resolved 14 cross-browser layout defects on Safari.
+
+SKILLS
+JavaScript, TypeScript, React, Next.js, Jest, React Testing Library, REST APIs, Git,
+GitHub Actions, responsive CSS, Tailwind
+
+ACHIEVEMENTS
+Winner, Inter-college Hackathon 2025 (team of 4, 60 teams)

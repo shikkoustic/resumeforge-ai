@@ -1,0 +1,15 @@
+MEERA JOSHI
+B.Tech Computer Science (2022-2026) | CGPA 8.4
+meera.example@email.com | Indore, India
+
+PROJECTS
+- Built a REST API in Python for a library management system, with 9 endpoints and token
+  based authentication.
+- Wrote SQL queries to generate monthly issue reports from the library database.
+
+INTERNSHIP
+Backend Intern, Cloudpeak Systems, June 2025 - July 2025
+- Added 5 endpoints to an existing Python service and wrote their integration tests.
+
+SKILLS
+Python, SQL, Git, Linux, REST APIs

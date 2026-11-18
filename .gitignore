@@ -1,0 +1,11 @@
+# Never commit secrets — a visible API key is an automatic 0 for the repository section
+.env
+.env.*
+*.key
+secrets.toml
+.streamlit/secrets.toml
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store

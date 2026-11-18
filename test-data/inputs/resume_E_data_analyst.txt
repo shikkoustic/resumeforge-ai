@@ -1,0 +1,17 @@
+SNEHA IYER
+B.Tech Computer Science (2022-2026) | CGPA 8.3
+sneha.example@email.com | Chennai, India
+
+PROJECTS
+- Analysed 3 years of campus placement data (4,200 records) in Python and pandas, and
+  published a Tableau dashboard used by the placement cell.
+- Built a churn prediction model in scikit-learn reaching 0.81 ROC-AUC on a public telecom
+  dataset.
+
+INTERNSHIP
+Data Analyst Intern, Nexus Retail Analytics, June 2025 - August 2025
+- Wrote 40+ SQL queries against a PostgreSQL warehouse to build weekly sales reports.
+- Automated a manual Excel report in Python, saving roughly 6 hours per week.
+
+SKILLS
+Python, pandas, NumPy, scikit-learn, SQL, PostgreSQL, Tableau, Advanced Excel, Git

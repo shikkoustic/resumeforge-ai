@@ -1,0 +1,28 @@
+ANANYA VERMA
+B.Tech Computer Science (2023-2027) | CGPA 7.9
+anannya.example@email.com | Noida, India
+
+EDUCATION
+B.Tech Computer Science and Engineering, 2023-2027, CGPA 7.9
+Class XII CBSE, 2023, 88%
+
+PROJECTS
+- Did a project on web development using HTML, CSS and some JavaScript.
+- Built a college event portal using React and Firebase. Around 400 students used it
+  during fest week.
+- Made a small Python script to clean CSV files for a class assignment.
+
+INTERNSHIP
+Web Development Intern, Brightline Softwares, June 2025 - July 2025
+- Worked on the company website and fixed bugs.
+- Helped the team with testing.
+
+SKILLS
+HTML, CSS, JavaScript, React, Python, Firebase, Git, MS Excel
+
+POSITIONS OF RESPONSIBILITY
+Member, Coding Club
+
+OBJECTIVE
+To obtain a challenging position in a reputed organisation where I can utilise my skills
+and grow with the company.

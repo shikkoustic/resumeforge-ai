@@ -1,0 +1,19 @@
+Software Development Engineer Intern
+
+About the role
+A generalist internship for students who like solving problems and shipping code.
+
+Requirements
+- Solid grasp of data structures and algorithms
+- Proficiency in at least one of Java, C++ or Python
+- Understanding of object-oriented design
+- Familiarity with version control using Git
+- Willingness to learn a new stack quickly
+
+Good to have
+- A personal project or open source contribution
+- Competitive programming experience
+
+What you will do
+- Work with a mentor on a scoped feature
+- Write clean, tested code and take part in code review

@@ -1,0 +1,17 @@
+Backend Developer Intern
+
+About the role
+Help us build and scale the services behind our logistics platform.
+
+Requirements
+- Strong Python fundamentals
+- Hands-on experience building web services with Django and Django REST Framework
+- Working knowledge of PostgreSQL, including schema design and query optimisation
+- Experience with Docker for local development
+- Comfortable writing unit and integration tests with pytest
+- Familiarity with Celery or another task queue
+
+What you will do
+- Build and maintain Django REST endpoints
+- Write tests for the services you ship
+- Work with the team on schema changes and migrations

@@ -1,0 +1,22 @@
+Frontend Engineer Intern
+
+About the role
+We are looking for a frontend intern to help build and maintain our customer-facing web
+dashboard.
+
+Requirements
+- Strong JavaScript fundamentals and hands-on experience with React
+- Experience with TypeScript in a real project
+- Familiarity with REST API integration and handling asynchronous state
+- Comfortable with Git-based collaboration and code review
+- Working knowledge of responsive CSS and cross-browser testing
+- Exposure to unit testing with Jest or a similar framework
+
+Good to have
+- Experience with Next.js
+- Basic understanding of CI/CD pipelines
+
+What you will do
+- Build reusable React components for the dashboard
+- Integrate REST endpoints and handle loading and error states
+- Write unit tests for the components you ship

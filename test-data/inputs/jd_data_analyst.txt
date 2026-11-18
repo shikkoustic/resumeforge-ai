@@ -1,0 +1,21 @@
+Data Analyst Intern
+
+About the role
+Join our analytics team to turn raw sales and customer data into reports the business
+actually uses.
+
+Requirements
+- Strong SQL, including joins, window functions and aggregation
+- Python with pandas for data cleaning and analysis
+- Experience building dashboards in Tableau or Power BI
+- Advanced Excel including pivot tables and lookups
+- Ability to present findings clearly to non-technical stakeholders
+
+Good to have
+- Exposure to basic statistics or A/B testing
+- Familiarity with a cloud data warehouse
+
+What you will do
+- Write SQL to answer business questions
+- Build and maintain weekly reporting dashboards
+- Automate manual reporting processes

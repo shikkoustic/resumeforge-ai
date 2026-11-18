@@ -1,0 +1,18 @@
+PRIYA DESHMUKH
+B.Tech Mechanical Engineering (2022-2026) | CGPA 8.1
+priya.example@email.com | Nagpur, India
+
+PROJECTS
+- Designed a go-kart chassis in SolidWorks, reduced weight by 12% against the previous
+  year's frame.
+- Ran thermal simulation of a heat exchanger in ANSYS for a semester project.
+
+INTERNSHIP
+Production Intern, Shakti Auto Components, June 2025 - July 2025
+- Studied the assembly line and documented cycle times for 6 stations.
+
+SKILLS
+SolidWorks, ANSYS, AutoCAD, MS Excel, basic Python
+
+POSITIONS OF RESPONSIBILITY
+Treasurer, SAE Club

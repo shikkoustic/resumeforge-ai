@@ -1,0 +1,18 @@
+KARAN MEHTA
+B.Tech Computer Science (2023-2027) | CGPA 7.2
+karan.example@email.com | Jaipur, India
+
+SKILLS
+Python, Java, C++, JavaScript, TypeScript, React, Angular, Vue, Node.js, Express, Django,
+Flask, Spring Boot, MySQL, PostgreSQL, MongoDB, Redis, Docker, Kubernetes, AWS, Azure,
+GCP, TensorFlow, PyTorch, Keras, Hadoop, Spark, Kafka, Git, Jenkins, Terraform
+
+EDUCATION
+B.Tech Computer Science and Engineering, 2023-2027, CGPA 7.2
+
+PROJECTS
+- Online shopping website.
+- Chat application.
+
+CERTIFICATIONS
+Completed 14 online courses in full stack development and machine learning.

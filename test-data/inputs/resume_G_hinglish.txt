@@ -1,0 +1,15 @@
+VIKRAM SINGH
+B.Tech CSE, 2023-2027, CGPA 7.5
+vikram.example@email.com
+
+PROJECTS
+- Maine ek e-commerce website banayi thi React aur Node.js use karke, jisme payment
+  gateway bhi integrate kiya tha.
+- College ke liye ek attendance app banaya, around 200 students ne use kiya.
+
+INTERNSHIP
+Intern, Softcore Solutions, June 2025 - July 2025
+- Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.
+
+SKILLS
+React, Node.js, Express, MongoDB, JavaScript, Git

@@ -1,0 +1,16 @@
+ADITYA RAJ
+B.Tech Computer Science (2024-2028) | CGPA 8.0
+aditya.example@email.com | Patna, India
+
+EDUCATION
+B.Tech Computer Science and Engineering, 2024-2028, CGPA 8.0
+
+PROJECTS
+- Built a command line to-do manager in Java with file persistence.
+- Solved 300 problems on LeetCode, mostly arrays and dynamic programming.
+
+SKILLS
+Java, C, Data Structures, Algorithms, Git
+
+POSITIONS OF RESPONSIBILITY
+Volunteer, Technical Fest
