@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt experiment — ResumeForge AI</title>
+<style>
+  :root{--ink:#1D1D1F;--muted:#6B6880;--line:#E6E3F5;--bad:#C0392B;--good:#1E7A52;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5F5F7;color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+       display:flex;align-items:center;justify-content:center;min-height:100vh;padding:3vh 3vw;}
+  .wrap{width:100%;max-width:1500px}
+  h1{font-size:clamp(22px,2.6vw,38px);margin:0 0 .3em;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:clamp(13px,1.15vw,18px);margin:0 0 2.2vh}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:2vw}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:2.2vh 1.6vw;
+        box-shadow:0 10px 30px rgba(31,27,46,.06)}
+  .tag{display:inline-block;font-size:clamp(11px,.85vw,14px);font-weight:800;letter-spacing:.09em;
+       text-transform:uppercase;padding:.3em .8em;border-radius:999px;margin-bottom:1.4vh}
+  .tag.before{background:#FFF0F0;color:var(--bad);border:1px solid #F3C9C9}
+  .tag.after{background:#EAF7F1;color:var(--good);border:1px solid #BFE6D4}
+  .lbl{font-size:clamp(10px,.8vw,13px);font-weight:800;color:var(--muted);letter-spacing:.08em;
+       text-transform:uppercase;margin:1.4vh 0 .5vh}
+  .quote{font-size:clamp(14px,1.25vw,21px);line-height:1.5}
+  .orig{color:var(--muted);font-style:italic}
+  mark{background:#FFE3E3;color:var(--bad);font-weight:800;padding:0 .18em;border-radius:4px}
+  .ok{color:var(--good);font-weight:700}
+  .verdict{margin-top:1.8vh;padding-top:1.4vh;border-top:1px dashed var(--line);
+           font-size:clamp(12px,1vw,17px)}
+  .score{display:flex;gap:2vw;justify-content:center;margin-top:2.6vh}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.6vh 2vw;text-align:center;min-width:19%}
+  .num{font-size:clamp(30px,3.6vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1}
+  .num.bad{color:var(--bad)} .num.good{color:var(--good)}
+  .cap{font-size:clamp(10px,.82vw,14px);color:var(--muted);margin-top:.5vh;letter-spacing:.04em}
+  .foot{text-align:center;color:var(--muted);font-size:clamp(10px,.8vw,13px);margin-top:2.2vh}
+</style></head><body><div class="wrap">
+
+  <h1>Same resume. Same model. Only the prompt changed.</h1>
+  <p class="sub">Resume line: &ldquo;Worked on the company website and fixed bugs.&rdquo;
+     &mdash; the resume states no counts, percentages or outcomes anywhere.</p>
+
+  <div class="cols">
+    <div class="card">
+      <span class="tag before">Before &mdash; v1, one prompt scores and rewrites</span>
+      <div class="lbl">Rewrite produced</div>
+      <div class="quote">Diagnosed and resolved <mark>12 critical UI bugs</mark> on the
+        company website, enhancing cross-browser compatibility and improving
+        <mark>user satisfaction scores</mark>.</div>
+      <div class="verdict">The resume never says how many bugs, and never mentions
+        satisfaction scores. A student pasting this into a real CV would be lying to a
+        recruiter without knowing it.</div>
+    </div>
+
+    <div class="card">
+      <span class="tag after">After &mdash; v3, judging and writing split in two</span>
+      <div class="lbl">Rewrite produced</div>
+      <div class="quote">Diagnosed and resolved front-end bugs on Brightline Softwares&rsquo;
+        website, enhancing page stability.</div>
+      <div class="verdict"><span class="ok">Stronger verb, no invented facts.</span>
+        It names the employer, which is in the resume, and returns
+        <code>added_metric: false</code> because the resume supplies no number.</div>
+    </div>
+  </div>
+
+  <div class="score">
+    <div class="pill"><div class="num bad">9</div><div class="cap">v1 &mdash; invented figures</div></div>
+    <div class="pill"><div class="num bad">13</div><div class="cap">v2 &mdash; got worse</div></div>
+    <div class="pill"><div class="num good">0</div><div class="cap">v3 &mdash; shipped</div></div>
+    <div class="pill"><div class="num good">0</div><div class="cap">across all 13 test cases</div></div>
+  </div>
+
+  <p class="foot">Measured over 5 runs per version on identical input &middot;
+     openai/gpt-oss-120b &middot; reproduced on Google Gemini (6 / 10 / 0) &middot;
+     raw outputs in test-data/ &mdash; ResumeForge AI, Team Rangers PE-B01-27</p>
+</div></body></html>
