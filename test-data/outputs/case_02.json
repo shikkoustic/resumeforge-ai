@@ -1,0 +1,50 @@
+{
+  "case": {
+    "no": 2,
+    "type": "Normal",
+    "resume": "resume_B_frontend_strong.txt",
+    "jd": "jd_frontend_intern.txt",
+    "short_input": "Strong frontend resume vs Frontend Intern JD",
+    "expected": "High score; few or no missing skills; few weak bullets"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 92,
+      "score_breakdown": {
+        "hard_skills": 40,
+        "project_evidence": 25,
+        "measurable_impact": 15,
+        "keywords": 8,
+        "structure": 4
+      },
+      "score_reason": "The candidate is a strong match for the Frontend Engineer Intern role, demonstrating proficiency in the core stack (React, TypeScript, Jest) and providing quantifiable impact in both projects and internship experience.",
+      "missing_skills": [
+        {
+          "skill": "CI/CD pipelines",
+          "jd_evidence": "Basic understanding of CI/CD pipelines"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Developed a Next.js portfolio site with 94 Lighthouse performance score.",
+          "problem": "Lacks context on the complexity of the site or specific technical challenges overcome."
+        }
+      ],
+      "red_flags": [
+        "Internship dates (May 2025 - July 2025) are in the future relative to standard hiring cycles, verify if this is a typo or future-dated entry."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Developed a Next.js portfolio site with 94 Lighthouse performance score.",
+        "improved": "Engineered a high-performance Next.js portfolio site, achieving a 94 Lighthouse performance score through optimized rendering and asset management.",
+        "why_better": "Uses stronger action verbs and clarifies that the score was achieved through specific technical optimization, without inventing metrics.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 92, 1 missing, 1 rewrites"
+}

@@ -1,0 +1,92 @@
+{
+  "case": {
+    "no": 11,
+    "type": "Edge",
+    "resume": "resume_I_implied_skills.txt",
+    "jd": "jd_backend_django.txt",
+    "short_input": "Python/SQL resume vs Django/PostgreSQL JD (inference trap)",
+    "expected": "Django and PostgreSQL listed as MISSING, not inferred from Python and SQL"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 48,
+      "score_breakdown": {
+        "hard_skills": 16,
+        "project_evidence": 15,
+        "measurable_impact": 7,
+        "keywords": 5,
+        "structure": 5
+      },
+      "score_reason": "The candidate demonstrates basic Python and SQL proficiency but lacks the specific framework and toolchain experience (Django, PostgreSQL, Docker, pytest) required for the role.",
+      "missing_skills": [
+        {
+          "skill": "Django",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "Django REST Framework",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "PostgreSQL",
+          "jd_evidence": "Working knowledge of PostgreSQL, including schema design and query optimisation"
+        },
+        {
+          "skill": "Docker",
+          "jd_evidence": "Experience with Docker for local development"
+        },
+        {
+          "skill": "pytest",
+          "jd_evidence": "Comfortable writing unit and integration tests with pytest"
+        },
+        {
+          "skill": "Celery",
+          "jd_evidence": "Familiarity with Celery or another task queue"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Built a REST API in Python for a library management system, with 9 endpoints and token based authentication.",
+          "problem": "Lacks mention of specific frameworks or technologies used to build the API."
+        },
+        {
+          "original": "Wrote SQL queries to generate monthly issue reports from the library database.",
+          "problem": "Vague; does not specify the database system or the complexity of the queries."
+        },
+        {
+          "original": "Added 5 endpoints to an existing Python service and wrote their integration tests.",
+          "problem": "Lacks context on the tech stack and the impact of the integration tests."
+        }
+      ],
+      "red_flags": [
+        "No mention of framework experience (Django) despite it being a core requirement.",
+        "Lack of experience with containerization (Docker) or task queues (Celery).",
+        "Resume is very brief and lacks depth in technical problem-solving descriptions."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Built a REST API in Python for a library management system, with 9 endpoints and token based authentication.",
+        "improved": "Developed a Python-based REST API for a library management system featuring 9 endpoints and secure token-based authentication.",
+        "why_better": "Replaces the generic 'built' with 'developed' and emphasizes the security implementation.",
+        "added_metric": false
+      },
+      {
+        "original": "Wrote SQL queries to generate monthly issue reports from the library database.",
+        "improved": "Engineered complex SQL queries to automate the generation of monthly issue reports from the library database.",
+        "why_better": "Uses 'engineered' to highlight the technical effort involved in report generation.",
+        "added_metric": false
+      },
+      {
+        "original": "Added 5 endpoints to an existing Python service and wrote their integration tests.",
+        "improved": "Extended an existing Python service by implementing 5 new endpoints and validating functionality through comprehensive integration tests.",
+        "why_better": "Uses 'extended' and 'validating' to better describe the backend development process.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "Pass",
+  "note": "Django and PostgreSQL both reported missing, not inferred"
+}

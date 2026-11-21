@@ -1,0 +1,60 @@
+{
+  "case": {
+    "no": 10,
+    "type": "Edge",
+    "resume": "resume_H_one_line.txt",
+    "jd": "jd_sde_intern.txt",
+    "short_input": "One-line resume vs SDE Intern JD",
+    "expected": "Very low score; does not invent projects or experience"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 35,
+      "score_breakdown": {
+        "hard_skills": 20,
+        "project_evidence": 0,
+        "measurable_impact": 0,
+        "keywords": 5,
+        "structure": 10
+      },
+      "score_reason": "The resume is extremely sparse, lacking evidence of projects, data structures knowledge, or version control experience required for the role.",
+      "missing_skills": [
+        {
+          "skill": "Data structures and algorithms",
+          "jd_evidence": "Solid grasp of data structures and algorithms"
+        },
+        {
+          "skill": "Object-oriented design",
+          "jd_evidence": "Understanding of object-oriented design"
+        },
+        {
+          "skill": "Git",
+          "jd_evidence": "Familiarity with version control using Git"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Knows Python.",
+          "problem": "Lacks context, depth, or application of the skill; no mention of projects or professional experience."
+        }
+      ],
+      "red_flags": [
+        "Resume lacks any project or internship experience",
+        "No mention of technical achievements or problem-solving outcomes",
+        "Extremely brief content suggests lack of preparation for a competitive SDE internship"
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Knows Python.",
+        "improved": "Utilized Python to implement core programming concepts and algorithmic problem-solving within B.Tech CSE coursework.",
+        "why_better": "Replaces the passive 'knows' with an active verb and contextualizes the skill within the academic environment provided.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 35, 3 missing, 1 rewrites"
+}

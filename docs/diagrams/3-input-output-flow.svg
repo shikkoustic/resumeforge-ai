@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="b" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#5A4FCF"/>
+    </marker>
+  </defs>
+  <rect width="860" height="400" fill="#ffffff"/>
+  <text x="12" y="22" font-size="14" font-weight="bold" fill="#1F1B2E">Diagram 3 — Input and output flow</text>
+
+  <text x="14" y="48" font-size="10.5" font-weight="bold" fill="#6B6880">INPUT</text>
+  <rect x="14" y="56" width="178" height="38" rx="7" fill="#F4F2FE" stroke="#C9C0F5"/>
+  <text x="26" y="73" font-size="10.5" fill="#1F1B2E">Resume PDF</text>
+  <text x="26" y="87" font-size="9" fill="#6B6880">pypdf, max 5 pages</text>
+
+  <rect x="14" y="100" width="178" height="38" rx="7" fill="#F4F2FE" stroke="#C9C0F5"/>
+  <text x="26" y="117" font-size="10.5" fill="#1F1B2E">or pasted resume text</text>
+  <text x="26" y="131" font-size="9" fill="#6B6880">textarea</text>
+
+  <rect x="14" y="144" width="178" height="38" rx="7" fill="#F4F2FE" stroke="#C9C0F5"/>
+  <text x="26" y="161" font-size="10.5" fill="#1F1B2E">Job description text</text>
+  <text x="26" y="175" font-size="9" fill="#6B6880">textarea</text>
+
+  <line x1="194" y1="119" x2="236" y2="119" stroke="#5A4FCF" stroke-width="1.6" marker-end="url(#b)"/>
+
+  <rect x="238" y="56" width="196" height="126" rx="9" fill="#EDE9FD" stroke="#8B7CF6" stroke-width="1.6"/>
+  <text x="336" y="76" font-size="11.5" font-weight="bold" text-anchor="middle" fill="#3B2F8F">P1 returns</text>
+  <text x="250" y="96" font-size="9.5" font-family="monospace" fill="#4A4660">status</text>
+  <text x="250" y="111" font-size="9.5" font-family="monospace" fill="#4A4660">match_score, score_breakdown</text>
+  <text x="250" y="126" font-size="9.5" font-family="monospace" fill="#4A4660">score_reason</text>
+  <text x="250" y="141" font-size="9.5" font-family="monospace" fill="#4A4660">missing_skills[{skill, jd_evidence}]</text>
+  <text x="250" y="156" font-size="9.5" font-family="monospace" fill="#4A4660">weak_bullet_ids[{original, problem}]</text>
+  <text x="250" y="171" font-size="9.5" font-family="monospace" fill="#4A4660">red_flags[]</text>
+
+  <line x1="436" y1="119" x2="478" y2="119" stroke="#5A4FCF" stroke-width="1.6" marker-end="url(#b)"/>
+  <text x="440" y="112" font-size="9" fill="#6B6880">weak_bullet_ids</text>
+
+  <rect x="480" y="56" width="196" height="126" rx="9" fill="#EDE9FD" stroke="#8B7CF6" stroke-width="1.6"/>
+  <text x="578" y="76" font-size="11.5" font-weight="bold" text-anchor="middle" fill="#3B2F8F">P2 returns</text>
+  <text x="492" y="98" font-size="9.5" font-family="monospace" fill="#4A4660">rewrites[{</text>
+  <text x="504" y="113" font-size="9.5" font-family="monospace" fill="#4A4660">original,</text>
+  <text x="504" y="128" font-size="9.5" font-family="monospace" fill="#4A4660">improved,</text>
+  <text x="504" y="143" font-size="9.5" font-family="monospace" fill="#4A4660">why_better,</text>
+  <text x="504" y="158" font-size="9.5" font-family="monospace" fill="#4A4660">added_metric</text>
+  <text x="492" y="173" font-size="9.5" font-family="monospace" fill="#4A4660">}]</text>
+
+  <line x1="336" y1="184" x2="336" y2="224" stroke="#5A4FCF" stroke-width="1.6" marker-end="url(#b)"/>
+  <line x1="578" y1="184" x2="578" y2="224" stroke="#5A4FCF" stroke-width="1.6" marker-end="url(#b)"/>
+
+  <text x="14" y="242" font-size="10.5" font-weight="bold" fill="#6B6880">OUTPUT — what the user sees</text>
+  <rect x="14" y="250" width="200" height="54" rx="7" fill="#F2FBF7" stroke="#8FD6BA"/>
+  <text x="26" y="268" font-size="10.5" fill="#1E5E47">Score ring, 0–100</text>
+  <text x="26" y="283" font-size="9" fill="#2D6B55">from match_score</text>
+  <text x="26" y="296" font-size="9" fill="#2D6B55">colour changes at 45 and 70</text>
+
+  <rect x="222" y="250" width="200" height="54" rx="7" fill="#F2FBF7" stroke="#8FD6BA"/>
+  <text x="234" y="268" font-size="10.5" fill="#1E5E47">Five rubric bars</text>
+  <text x="234" y="283" font-size="9" fill="#2D6B55">from score_breakdown</text>
+  <text x="234" y="296" font-size="9" fill="#2D6B55">each scaled to its own maximum</text>
+
+  <rect x="430" y="250" width="200" height="54" rx="7" fill="#F2FBF7" stroke="#8FD6BA"/>
+  <text x="442" y="268" font-size="10.5" fill="#1E5E47">Missing skill chips</text>
+  <text x="442" y="283" font-size="9" fill="#2D6B55">each shows its jd_evidence</text>
+  <text x="442" y="296" font-size="9" fill="#2D6B55">so no claim is unsourced</text>
+
+  <rect x="638" y="250" width="208" height="54" rx="7" fill="#F2FBF7" stroke="#8FD6BA"/>
+  <text x="650" y="268" font-size="10.5" fill="#1E5E47">Before / after bullet pairs</text>
+  <text x="650" y="283" font-size="9" fill="#2D6B55">tagged "no metric invented"</text>
+  <text x="650" y="296" font-size="9" fill="#2D6B55">when added_metric is false</text>
+
+  <rect x="14" y="312" width="200" height="40" rx="7" fill="#FFF8EC" stroke="#E8B04B"/>
+  <text x="26" y="330" font-size="10.5" fill="#7A5A1E">Red flag cards</text>
+  <text x="26" y="344" font-size="9" fill="#8A6A2E">from red_flags[]</text>
+
+  <rect x="222" y="312" width="200" height="40" rx="7" fill="#F4F2FE" stroke="#C9C0F5"/>
+  <text x="234" y="330" font-size="10.5" fill="#1F1B2E">Raw JSON panel</text>
+  <text x="234" y="344" font-size="9" fill="#6B6880">both prompts' output, collapsible</text>
+
+  <text x="14" y="378" font-size="9.5" fill="#6B6880">Every element on screen is traceable to one JSON field. Nothing in the interface is produced outside the two prompts.</text>
+</svg>

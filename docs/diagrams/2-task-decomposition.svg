@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="Helvetica, Arial, sans-serif">
+  <rect width="860" height="360" fill="#ffffff"/>
+  <text x="12" y="22" font-size="14" font-weight="bold" fill="#1F1B2E">Diagram 2 — Task decomposition</text>
+
+  <rect x="280" y="40" width="300" height="46" rx="9" fill="#1F1B2E"/>
+  <text x="430" y="62" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#ffffff">Give a student useful resume feedback</text>
+  <text x="430" y="78" font-size="10" text-anchor="middle" fill="#C9C0F5">against one specific job description</text>
+
+  <line x1="430" y1="88" x2="430" y2="104" stroke="#8B7CF6" stroke-width="1.6"/>
+  <line x1="200" y1="104" x2="660" y2="104" stroke="#8B7CF6" stroke-width="1.6"/>
+  <line x1="200" y1="104" x2="200" y2="122" stroke="#8B7CF6" stroke-width="1.6"/>
+  <line x1="660" y1="104" x2="660" y2="122" stroke="#8B7CF6" stroke-width="1.6"/>
+
+  <rect x="44" y="124" width="312" height="26" rx="6" fill="#EDE9FD" stroke="#8B7CF6"/>
+  <text x="200" y="142" font-size="11.5" font-weight="bold" text-anchor="middle" fill="#3B2F8F">Judging — handled by P1</text>
+
+  <rect x="44" y="160" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="56" y="177" font-size="10.5" fill="#1F1B2E">1. Decide whether the input is a real resume + JD</text>
+  <text x="56" y="192" font-size="9.5" fill="#6B6880">refuse rather than guess · returns status invalid_input</text>
+
+  <rect x="44" y="206" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="56" y="223" font-size="10.5" fill="#1F1B2E">2. Score on 5 weighted dimensions</text>
+  <text x="56" y="238" font-size="9.5" fill="#6B6880">skills 40 · projects 25 · impact 15 · keywords 10 · structure 10</text>
+
+  <rect x="44" y="252" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="56" y="269" font-size="10.5" fill="#1F1B2E">3. List required skills the resume does not show</text>
+  <text x="56" y="284" font-size="9.5" fill="#6B6880">each must quote the JD phrase it came from</text>
+
+  <rect x="44" y="298" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="56" y="315" font-size="10.5" fill="#1F1B2E">4. Flag weak bullets and red flags</text>
+  <text x="56" y="330" font-size="9.5" fill="#6B6880">quotes the offending line exactly; does not fix it</text>
+
+  <rect x="504" y="124" width="312" height="26" rx="6" fill="#EDE9FD" stroke="#8B7CF6"/>
+  <text x="660" y="142" font-size="11.5" font-weight="bold" text-anchor="middle" fill="#3B2F8F">Writing — handled by P2</text>
+
+  <rect x="504" y="160" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="516" y="177" font-size="10.5" fill="#1F1B2E">5. Rewrite each flagged bullet</text>
+  <text x="516" y="192" font-size="9.5" fill="#6B6880">Action - Method - Result, 30 words maximum</text>
+
+  <rect x="504" y="206" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="516" y="223" font-size="10.5" fill="#1F1B2E">6. Stay inside the facts of the resume</text>
+  <text x="516" y="238" font-size="9.5" fill="#6B6880">no invented tools, metrics, team sizes or outcomes</text>
+
+  <rect x="504" y="252" width="312" height="40" rx="7" fill="#F8F7FE" stroke="#D9D3F7"/>
+  <text x="516" y="269" font-size="10.5" fill="#1F1B2E">7. Declare whether a metric was added</text>
+  <text x="516" y="284" font-size="9.5" fill="#6B6880">added_metric flag, shown in the UI and checked in tests</text>
+
+  <rect x="504" y="298" width="312" height="40" rx="7" fill="#FFF8EC" stroke="#E8B04B"/>
+  <text x="516" y="315" font-size="10.5" fill="#7A5A1E">Why these are separate prompts</text>
+  <text x="516" y="330" font-size="9.5" fill="#8A6A2E">one prompt doing both invented metrics: 6 occurrences to 0</text>
+</svg>

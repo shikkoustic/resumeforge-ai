@@ -1,0 +1,83 @@
+{
+  "case": {
+    "no": 6,
+    "type": "Normal",
+    "resume": "resume_D_keyword_stuffed.txt",
+    "jd": "jd_backend_django.txt",
+    "short_input": "Keyword-stuffed resume vs Backend JD",
+    "expected": "Hard skills score high but project evidence low; red flag for skills with no supporting project"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 38,
+      "score_breakdown": {
+        "hard_skills": 23,
+        "project_evidence": 2,
+        "measurable_impact": 0,
+        "keywords": 6,
+        "structure": 7
+      },
+      "score_reason": "The resume lists many relevant technologies but lacks specific evidence of their application in projects, especially concerning Django REST Framework, testing, and task queues. Projects are too brief to demonstrate practical experience or measurable impact.",
+      "missing_skills": [
+        {
+          "skill": "Django REST Framework",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "pytest",
+          "jd_evidence": "Comfortable writing unit and integration tests with pytest"
+        },
+        {
+          "skill": "unit and integration tests",
+          "jd_evidence": "Comfortable writing unit and integration tests with pytest"
+        },
+        {
+          "skill": "Celery or another task queue",
+          "jd_evidence": "Familiarity with Celery or another task queue"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Online shopping website.",
+          "problem": "Lacks specific technologies used (e.g., Django, PostgreSQL, Docker), features implemented, challenges overcome, or measurable outcomes."
+        },
+        {
+          "original": "Chat application.",
+          "problem": "Lacks specific technologies used, features implemented, challenges overcome, or measurable outcomes."
+        },
+        {
+          "original": "Completed 14 online courses in full stack development and machine learning.",
+          "problem": "Lacks specific course names, platforms, or how the learning was applied. Does not provide concrete evidence of skills or their relevance to the role."
+        }
+      ],
+      "red_flags": [
+        "Projects lack detail regarding technologies used, features, challenges, or impact, making it difficult to assess practical experience.",
+        "Skills section is a long list without indicating proficiency level or context of use for each technology."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Online shopping website.",
+        "improved": "Developed an online shopping website, implementing core e-commerce functionalities.",
+        "why_better": "Replaces the weak verb 'online' with 'developed' and specifies the type of functionalities, without inventing technologies not present in the resume.",
+        "added_metric": false
+      },
+      {
+        "original": "Chat application.",
+        "improved": "Engineered a real-time chat application, focusing on message exchange and user interaction.",
+        "why_better": "Replaces the weak noun phrase with a strong verb 'engineered' and describes the core functionality, without inventing technologies not present in the resume.",
+        "added_metric": false
+      },
+      {
+        "original": "Completed 14 online courses in full stack development and machine learning.",
+        "improved": "Acquired foundational skills in full stack development and machine learning through 14 online courses.",
+        "why_better": "Emphasizes the acquisition of skills relevant to the role, rather than just completion, without adding new details.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 38, 4 missing, 3 rewrites"
+}

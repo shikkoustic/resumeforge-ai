@@ -1,0 +1,74 @@
+{
+  "case": {
+    "no": 7,
+    "type": "Normal",
+    "resume": "resume_F_no_internship.txt",
+    "jd": "jd_sde_intern.txt",
+    "short_input": "Fresher, no internship, vs SDE Intern JD",
+    "expected": "Mid score; no internship is noted but DSA strength is credited"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 69,
+      "score_breakdown": {
+        "hard_skills": 24,
+        "project_evidence": 25,
+        "measurable_impact": 3,
+        "keywords": 7,
+        "structure": 10
+      },
+      "score_reason": "The candidate demonstrates foundational skills in Data Structures, Algorithms, Java, C, and Git, supported by a personal project and LeetCode activity. However, there are gaps in object-oriented design and measurable impact in project descriptions. The candidate is also in their first year, which is unusually early for an SDE Intern role.",
+      "missing_skills": [
+        {
+          "skill": "Understanding of object-oriented design",
+          "jd_evidence": "Understanding of object-oriented design"
+        },
+        {
+          "skill": "Willingness to learn a new stack quickly",
+          "jd_evidence": "Willingness to learn a new stack quickly"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Built a command line to-do manager in Java with file persistence.",
+          "problem": "Lacks measurable impact, scale, or specific outcomes."
+        },
+        {
+          "original": "Solved 300 problems on LeetCode, mostly arrays and dynamic programming.",
+          "problem": "While '300 problems' is a quantity, it lacks context on impact, specific achievements, or competitive ranking."
+        },
+        {
+          "original": "Volunteer, Technical Fest",
+          "problem": "Lacks details on responsibilities, achievements, or skills utilized/developed."
+        }
+      ],
+      "red_flags": [
+        "Candidate is in their first year of B.Tech (2024-2028), which is unusually early for an SDE Intern role."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Built a command line to-do manager in Java with file persistence.",
+        "improved": "Developed a command-line to-do manager in Java, incorporating file persistence for data storage.",
+        "why_better": "Replaces the weak verb 'built' with 'developed' and clarifies the technical implementation of file persistence.",
+        "added_metric": false
+      },
+      {
+        "original": "Solved 300 problems on LeetCode, mostly arrays and dynamic programming.",
+        "improved": "Honed problem-solving skills by solving 300 LeetCode problems, focusing on arrays and dynamic programming.",
+        "why_better": "Emphasizes the skill developed ('honed problem-solving skills') while retaining the quantifiable metric from the resume.",
+        "added_metric": true
+      },
+      {
+        "original": "Volunteer, Technical Fest",
+        "improved": "Contributed to the successful execution of the annual Technical Fest as a volunteer.",
+        "why_better": "Replaces the passive 'Volunteer' with an active verb 'Contributed' and implies participation in the event's success, without inventing details.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 69, 2 missing, 3 rewrites"
+}

@@ -1,0 +1,56 @@
+{
+  "case": {
+    "no": 3,
+    "type": "Normal",
+    "resume": "resume_E_data_analyst.txt",
+    "jd": "jd_data_analyst.txt",
+    "short_input": "Data analyst resume vs Data Analyst JD",
+    "expected": "High score; strong hard-skill and impact marks"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 84,
+      "score_breakdown": {
+        "hard_skills": 24,
+        "project_evidence": 25,
+        "measurable_impact": 15,
+        "keywords": 10,
+        "structure": 10
+      },
+      "score_reason": "The resume demonstrates strong alignment with the job description, particularly in relevant project and internship experience, measurable impact, and use of domain-specific keywords. Key strengths include practical application of Python, pandas, SQL, and Tableau for data analysis and reporting automation. The main areas for improvement are explicitly stating advanced SQL and Excel functionalities, and demonstrating soft skills like presenting to non-technical stakeholders.",
+      "missing_skills": [
+        {
+          "skill": "joins",
+          "jd_evidence": "Strong SQL, including joins, window functions and aggregation"
+        },
+        {
+          "skill": "window functions",
+          "jd_evidence": "Strong SQL, including joins, window functions and aggregation"
+        },
+        {
+          "skill": "aggregation",
+          "jd_evidence": "Strong SQL, including joins, window functions and aggregation"
+        },
+        {
+          "skill": "pivot tables",
+          "jd_evidence": "Advanced Excel including pivot tables and lookups"
+        },
+        {
+          "skill": "lookups",
+          "jd_evidence": "Advanced Excel including pivot tables and lookups"
+        },
+        {
+          "skill": "Ability to present findings clearly to non-technical stakeholders",
+          "jd_evidence": "Ability to present findings clearly to non-technical stakeholders"
+        }
+      ],
+      "weak_bullet_ids": [],
+      "red_flags": []
+    },
+    "rewrites": [],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 84, 6 missing, 0 rewrites"
+}

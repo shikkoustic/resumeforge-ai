@@ -1,0 +1,101 @@
+{
+  "case": {
+    "no": 4,
+    "type": "Normal",
+    "resume": "resume_E_data_analyst.txt",
+    "jd": "jd_frontend_intern.txt",
+    "short_input": "Data analyst resume vs Frontend Intern JD",
+    "expected": "Low score; most frontend skills listed as missing"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 15,
+      "score_breakdown": {
+        "hard_skills": 5,
+        "project_evidence": 0,
+        "measurable_impact": 0,
+        "keywords": 5,
+        "structure": 5
+      },
+      "score_reason": "The candidate's profile is heavily focused on Data Analytics and lacks the core Frontend Engineering stack (React, JavaScript, TypeScript) required for the role.",
+      "missing_skills": [
+        {
+          "skill": "JavaScript",
+          "jd_evidence": "Strong JavaScript fundamentals"
+        },
+        {
+          "skill": "React",
+          "jd_evidence": "hands-on experience with React"
+        },
+        {
+          "skill": "TypeScript",
+          "jd_evidence": "Experience with TypeScript in a real project"
+        },
+        {
+          "skill": "REST API",
+          "jd_evidence": "Familiarity with REST API integration"
+        },
+        {
+          "skill": "CSS",
+          "jd_evidence": "Working knowledge of responsive CSS"
+        },
+        {
+          "skill": "Jest",
+          "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Analysed 3 years of campus placement data (4,200 records) in Python and pandas, and published a Tableau dashboard used by the placement cell.",
+          "problem": "Irrelevant to Frontend Engineering role."
+        },
+        {
+          "original": "Built a churn prediction model in scikit-learn reaching 0.81 ROC-AUC on a public telecom dataset.",
+          "problem": "Irrelevant to Frontend Engineering role."
+        },
+        {
+          "original": "Wrote 40+ SQL queries against a PostgreSQL warehouse to build weekly sales reports.",
+          "problem": "Irrelevant to Frontend Engineering role."
+        },
+        {
+          "original": "Automated a manual Excel report in Python, saving roughly 6 hours per week.",
+          "problem": "Irrelevant to Frontend Engineering role."
+        }
+      ],
+      "red_flags": [
+        "Zero overlap between candidate's technical stack (Data Science/Analytics) and the job requirements (Frontend Engineering).",
+        "No evidence of web development projects or experience."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Analysed 3 years of campus placement data (4,200 records) in Python and pandas, and published a Tableau dashboard used by the placement cell.",
+        "improved": "Visualized 4,200 records of campus placement data by designing and publishing an interactive Tableau dashboard for the university placement cell.",
+        "why_better": "Focuses on the data visualization and dashboard design aspect, which is more relevant to frontend UI/UX presentation than data analysis.",
+        "added_metric": false
+      },
+      {
+        "original": "Built a churn prediction model in scikit-learn reaching 0.81 ROC-AUC on a public telecom dataset.",
+        "improved": "Engineered a data-driven model using scikit-learn to process telecom datasets, achieving a 0.81 ROC-AUC score.",
+        "why_better": "Reframes the technical implementation to emphasize engineering logic and model performance, which demonstrates analytical rigor useful for frontend data handling.",
+        "added_metric": false
+      },
+      {
+        "original": "Wrote 40+ SQL queries against a PostgreSQL warehouse to build weekly sales reports.",
+        "improved": "Developed 40+ complex SQL queries to extract and structure data from PostgreSQL, facilitating the generation of weekly sales reports.",
+        "why_better": "Highlights the ability to interface with backend databases, a critical skill for frontend engineers working with API-driven data.",
+        "added_metric": false
+      },
+      {
+        "original": "Automated a manual Excel report in Python, saving roughly 6 hours per week.",
+        "improved": "Automated manual reporting workflows using Python, streamlining data processing and saving 6 hours of manual effort per week.",
+        "why_better": "Emphasizes process automation and efficiency, demonstrating the ability to build tools that improve operational workflows.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 15, 6 missing, 4 rewrites"
+}

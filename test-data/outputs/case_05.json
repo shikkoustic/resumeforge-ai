@@ -1,0 +1,64 @@
+{
+  "case": {
+    "no": 5,
+    "type": "Normal",
+    "resume": "resume_C_mechanical.txt",
+    "jd": "jd_sde_intern.txt",
+    "short_input": "Mechanical resume vs SDE Intern JD",
+    "expected": "Very low score; DSA and OOP flagged missing; no fabricated coding experience"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 25,
+      "score_breakdown": {
+        "hard_skills": 10,
+        "project_evidence": 5,
+        "measurable_impact": 5,
+        "keywords": 0,
+        "structure": 5
+      },
+      "score_reason": "The candidate is a Mechanical Engineering student applying for a Software Development role with minimal relevant technical experience or core CS skills.",
+      "missing_skills": [
+        {
+          "skill": "Data Structures and Algorithms",
+          "jd_evidence": "Solid grasp of data structures and algorithms"
+        },
+        {
+          "skill": "Java or C++",
+          "jd_evidence": "Proficiency in at least one of Java, C++ or Python"
+        },
+        {
+          "skill": "Object-oriented design",
+          "jd_evidence": "Understanding of object-oriented design"
+        },
+        {
+          "skill": "Git",
+          "jd_evidence": "Familiarity with version control using Git"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Studied the assembly line and documented cycle times for 6 stations.",
+          "problem": "Describes passive observation rather than active contribution or technical software development impact."
+        }
+      ],
+      "red_flags": [
+        "Candidate's academic background (Mechanical Engineering) is misaligned with the SDE role requirements.",
+        "Lack of software development projects or coding experience.",
+        "Resume focuses entirely on mechanical tools (SolidWorks, ANSYS) which are irrelevant to the SDE job description."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Studied the assembly line and documented cycle times for 6 stations.",
+        "improved": "Analyzed assembly line efficiency by documenting and auditing cycle times across 6 production stations to identify operational bottlenecks.",
+        "why_better": "Replaces passive 'studied' with active 'analyzed' and clarifies the purpose of the documentation, highlighting analytical skills relevant to SDE roles.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 25, 4 missing, 1 rewrites"
+}

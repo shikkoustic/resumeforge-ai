@@ -1,0 +1,31 @@
+{
+  "case": {
+    "no": 2,
+    "type": "Normal",
+    "resume": "resume_B_frontend_strong.txt",
+    "jd": "jd_frontend_intern.txt",
+    "short_input": "Strong frontend resume vs Frontend Intern JD",
+    "expected": "High score; few or no missing skills; few weak bullets"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 100,
+      "score_breakdown": {
+        "hard_skills": 40,
+        "project_evidence": 25,
+        "measurable_impact": 15,
+        "keywords": 10,
+        "structure": 10
+      },
+      "score_reason": "Excellent match. The candidate demonstrates all required skills with strong project and internship evidence, including significant measurable impact. The resume is well-structured and uses appropriate domain language.",
+      "missing_skills": [],
+      "weak_bullet_ids": [],
+      "red_flags": []
+    },
+    "rewrites": [],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 100, 0 missing, 0 rewrites"
+}

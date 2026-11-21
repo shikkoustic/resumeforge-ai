@@ -1,0 +1,59 @@
+{
+  "case": {
+    "no": 5,
+    "type": "Normal",
+    "resume": "resume_C_mechanical.txt",
+    "jd": "jd_sde_intern.txt",
+    "short_input": "Mechanical resume vs SDE Intern JD",
+    "expected": "Very low score; DSA and OOP flagged missing; no fabricated coding experience"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 26,
+      "score_breakdown": {
+        "hard_skills": 10,
+        "project_evidence": 0,
+        "measurable_impact": 5,
+        "keywords": 1,
+        "structure": 10
+      },
+      "score_reason": "The candidate's resume is heavily focused on Mechanical Engineering, with projects and internships entirely unrelated to software development. While 'basic Python' is listed, core SDE requirements like data structures, algorithms, object-oriented design, and Git are missing. The measurable impact is present but in an irrelevant domain.",
+      "missing_skills": [
+        {
+          "skill": "Solid grasp of data structures and algorithms",
+          "jd_evidence": "Solid grasp of data structures and algorithms"
+        },
+        {
+          "skill": "Understanding of object-oriented design",
+          "jd_evidence": "Understanding of object-oriented design"
+        },
+        {
+          "skill": "Familiarity with version control using Git",
+          "jd_evidence": "Familiarity with version control using Git"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Studied the assembly line and documented cycle times for 6 stations.",
+          "problem": "This bullet point describes an observation and documentation task, but lacks measurable impact or specific achievement. It is also not relevant to a Software Development Engineer role."
+        }
+      ],
+      "red_flags": [
+        "The resume is entirely focused on Mechanical Engineering, with no evidence of software development experience, projects, or relevant skills beyond 'basic Python'.",
+        "The stated 'basic Python' might not meet the 'Proficiency' requirement for the role."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Studied the assembly line and documented cycle times for 6 stations.",
+        "improved": "Analyzed assembly line processes and documented cycle times for 6 production stations.",
+        "why_better": "Replaced the weak verb 'studied' with 'analyzed' and added 'production' for specificity, while accurately reflecting the scope of work from the resume.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 26, 3 missing, 1 rewrites"
+}

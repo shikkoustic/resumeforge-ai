@@ -1,0 +1,122 @@
+{
+  "case": {
+    "no": 1,
+    "type": "Normal",
+    "resume": "resume_A_frontend_weak.txt",
+    "jd": "jd_frontend_intern.txt",
+    "short_input": "Weak frontend resume vs Frontend Intern JD",
+    "expected": "Low-to-mid score; flags missing TypeScript, testing, REST; rewrites vague bullets without inventing metrics"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 66,
+      "score_breakdown": {
+        "hard_skills": 18,
+        "project_evidence": 25,
+        "measurable_impact": 10,
+        "keywords": 4,
+        "structure": 9
+      },
+      "score_reason": "The candidate demonstrates foundational web development skills with React and JavaScript, supported by relevant project experience including one with measurable impact. However, there are significant gaps in required hard skills like TypeScript, REST API integration, unit testing, and specific frontend practices like responsive CSS and cross-browser testing. The internship experience lacks specific achievements and impact, and the resume uses generic language in several places.",
+      "missing_skills": [
+        {
+          "skill": "TypeScript",
+          "jd_evidence": "Experience with TypeScript in a real project"
+        },
+        {
+          "skill": "REST API integration and handling asynchronous state",
+          "jd_evidence": "Familiarity with REST API integration and handling asynchronous state"
+        },
+        {
+          "skill": "code review",
+          "jd_evidence": "Comfortable with Git-based collaboration and code review"
+        },
+        {
+          "skill": "responsive CSS",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
+        },
+        {
+          "skill": "cross-browser testing",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
+        },
+        {
+          "skill": "unit testing with Jest or a similar framework",
+          "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+          "problem": "This bullet is too generic and lacks specific details about the project's scope, features, or the candidate's contributions."
+        },
+        {
+          "original": "Made a small Python script to clean CSV files for a class assignment.",
+          "problem": "This project is not directly relevant to a Frontend Engineer Intern role and the descriptor 'small' weakens its perceived value."
+        },
+        {
+          "original": "Worked on the company website and fixed bugs.",
+          "problem": "This bullet lacks specifics on the types of bugs fixed, the impact of the fixes, or the technologies used, making it difficult to assess the contribution."
+        },
+        {
+          "original": "Helped the team with testing.",
+          "problem": "This is a very generic statement. It lacks details on what was tested, the testing methodologies used, or the impact of the testing efforts."
+        },
+        {
+          "original": "Member, Coding Club",
+          "problem": "This entry lacks any specific responsibilities, achievements, or contributions within the club, making it a weak point of responsibility."
+        },
+        {
+          "original": "To obtain a challenging position in a reputed organisation where I can utilise my skills and grow with the company.",
+          "problem": "This is a generic objective statement that does not add value to the resume and is often considered outdated in modern resumes."
+        }
+      ],
+      "red_flags": [
+        "The objective statement is generic and does not add specific value to the application.",
+        "Lack of specific, measurable achievements or impact in the internship experience bullet points.",
+        "Inclusion of a Python project that is not relevant to a Frontend Engineer Intern role, potentially diluting focus."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+        "improved": "Developed a web project from scratch using HTML, CSS, and JavaScript.",
+        "why_better": "Replaces weak verb 'did' with 'developed' and adds 'from scratch' to imply ownership and comprehensive skill application, while staying within the provided facts.",
+        "added_metric": false
+      },
+      {
+        "original": "Made a small Python script to clean CSV files for a class assignment.",
+        "improved": "Automated CSV file cleaning for a class assignment using a Python script.",
+        "why_better": "Replaces 'made a small' with 'automated' and a stronger verb, highlighting the functional outcome of the script without inventing details.",
+        "added_metric": false
+      },
+      {
+        "original": "Worked on the company website and fixed bugs.",
+        "improved": "Resolved bugs on the company website as a Web Development Intern.",
+        "why_better": "Replaces the weak 'worked on' and 'fixed' with 'resolved' and explicitly links the action to the internship role, making it more professional.",
+        "added_metric": false
+      },
+      {
+        "original": "Helped the team with testing.",
+        "improved": "Performed testing activities to support the development team.",
+        "why_better": "Replaces the vague 'helped' with 'performed testing activities,' providing a more active and specific description of the contribution.",
+        "added_metric": false
+      },
+      {
+        "original": "Member, Coding Club",
+        "improved": "Held position as Member of the university Coding Club.",
+        "why_better": "Rephrases the entry to 'Held position as Member' for a slightly more active tone, while strictly adhering to the rule of not inventing details.",
+        "added_metric": false
+      },
+      {
+        "original": "To obtain a challenging position in a reputed organisation where I can utilise my skills and grow with the company.",
+        "improved": "Seeking Frontend Engineer Intern position to leverage skills in HTML, CSS, JavaScript, and React.",
+        "why_better": "Transforms a generic objective into a concise, role-specific statement, highlighting relevant frontend skills from the resume.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 66, 6 missing, 6 rewrites"
+}

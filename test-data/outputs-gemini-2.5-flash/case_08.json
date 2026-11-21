@@ -1,0 +1,97 @@
+{
+  "case": {
+    "no": 8,
+    "type": "Normal",
+    "resume": "resume_A_frontend_weak.txt",
+    "jd": "jd_backend_django.txt",
+    "short_input": "Frontend resume vs Backend Django JD",
+    "expected": "Low score; Django, PostgreSQL, Docker, pytest all missing"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 26,
+      "score_breakdown": {
+        "hard_skills": 7,
+        "project_evidence": 5,
+        "measurable_impact": 5,
+        "keywords": 1,
+        "structure": 8
+      },
+      "score_reason": "The resume shows foundational Python skills and some web development project experience, including one with measurable user engagement. However, it critically lacks specific backend technologies like Django, PostgreSQL, Docker, pytest, and task queues, which are core requirements for the role. The internship is short and vaguely described, and most projects do not demonstrate experience in building scalable backend services as outlined in the job description.",
+      "missing_skills": [
+        {
+          "skill": "Django and Django REST Framework",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "PostgreSQL",
+          "jd_evidence": "Working knowledge of PostgreSQL, including schema design and query optimisation"
+        },
+        {
+          "skill": "Docker",
+          "jd_evidence": "Experience with Docker for local development"
+        },
+        {
+          "skill": "pytest",
+          "jd_evidence": "Comfortable writing unit and integration tests with pytest"
+        },
+        {
+          "skill": "Celery or another task queue",
+          "jd_evidence": "Familiarity with Celery or another task queue"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+          "problem": "This bullet is too generic and lacks specific details about the project's purpose, features, or complexity."
+        },
+        {
+          "original": "Made a small Python script to clean CSV files for a class assignment.",
+          "problem": "Describing it as 'small' and for a 'class assignment' downplays its potential impact and doesn't highlight problem-solving or technical depth."
+        },
+        {
+          "original": "Worked on the company website and fixed bugs.",
+          "problem": "This is vague; it doesn't specify the type of bugs, the technologies involved, or the impact of the fixes."
+        },
+        {
+          "original": "Helped the team with testing.",
+          "problem": "This is too generic; it doesn't specify the type of testing, tools used, or the candidate's specific contributions."
+        }
+      ],
+      "red_flags": [
+        "The objective statement is generic and does not tailor to the specific role or company.",
+        "The internship duration is very short (1 month), which might suggest limited practical exposure."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+        "improved": "Developed a web project, integrating HTML, CSS, and JavaScript for functionality.",
+        "why_better": "Replaces the weak verb 'Did' with 'Developed' and specifies the technologies used for project functionality.",
+        "added_metric": false
+      },
+      {
+        "original": "Made a small Python script to clean CSV files for a class assignment.",
+        "improved": "Developed a Python script to automate the cleaning of CSV files.",
+        "why_better": "Replaces the weak verb 'Made', removes downplaying words like 'small' and 'class assignment', and highlights the automation aspect.",
+        "added_metric": false
+      },
+      {
+        "original": "Worked on the company website and fixed bugs.",
+        "improved": "Resolved bugs on the company website, leveraging HTML, CSS, and JavaScript.",
+        "why_better": "Replaces the vague 'Worked on' with 'Resolved bugs' and specifies relevant web technologies from the skills section.",
+        "added_metric": false
+      },
+      {
+        "original": "Helped the team with testing.",
+        "improved": "Executed testing procedures for web applications, supporting team development.",
+        "why_better": "Replaces the generic 'Helped the team' with a stronger verb 'Executed' and contextualizes testing within web applications, aligning with the internship role.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 26, 5 missing, 4 rewrites"
+}

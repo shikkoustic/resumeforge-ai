@@ -18,7 +18,46 @@ from google.genai import types
 
 import prompt_loader
 
-MODEL = "gemini-2.5-flash"
+# The free tier gives only 20 generate_content requests per day on gemini-2.5-flash. That
+# is far too few for a public link that evaluators will click, so the app walks a chain of
+# models and keys and moves on whenever one is rate limited. Measured on 19 Nov 2026.
+DEFAULT_MODEL_CHAIN = [
+    "models/gemini-3.1-flash-lite",  # largest free quota of the three, good enough here
+    "gemini-2.5-flash",              # better reasoning, only ~20 requests/day free
+    "models/gemini-flash-lite-latest",
+]
+MODEL_CHAIN = [
+    m.strip()
+    for m in os.environ.get("RESUMEFORGE_MODEL", ",".join(DEFAULT_MODEL_CHAIN)).split(",")
+    if m.strip()
+]
+MODEL = MODEL_CHAIN[0]
+
+
+def _api_keys() -> list[str]:
+    """Every key we may use, in order.
+
+    GEMINI_API_KEYS may hold several comma-separated keys (one per team member). Each key
+    has its own daily quota, so a second key doubles how many reviews the live demo
+    survives.
+    """
+    raw = os.environ.get("GEMINI_API_KEYS") or os.environ.get("GEMINI_API_KEY") or ""
+    keys = [k.strip() for k in raw.split(",") if k.strip()]
+    if not keys:
+        raise ConfigError(
+            "No Gemini API key found. Copy .env.example to .env and set GEMINI_API_KEY, "
+            "or add it to Streamlit secrets."
+        )
+    return keys
+
+
+def _is_quota_error(exc: Exception) -> bool:
+    text = str(exc)
+    return "429" in text or "RESOURCE_EXHAUSTED" in text
+
+
+class AllQuotaExhausted(RuntimeError):
+    """Every key and model in the chain was rate limited."""
 
 
 def _load_dotenv() -> None:
@@ -65,19 +104,46 @@ def _parse_json(raw: str) -> dict:
 
 
 def _call(system: str, user: str, temperature: float, client=None) -> tuple[dict, str]:
-    """Send one prompt and return (parsed JSON, raw text)."""
-    client = client or _client()
-    response = client.models.generate_content(
-        model=MODEL,
-        contents=user,
-        config=types.GenerateContentConfig(
-            system_instruction=system,
-            temperature=temperature,
-            response_mime_type="application/json",
-        ),
+    """Send one prompt and return (parsed JSON, raw text).
+
+    Walks every (key, model) pair until one answers. A quota error moves to the next pair;
+    any other error is raised straight away, because retrying a bad prompt on another model
+    just hides the bug.
+    """
+    config = types.GenerateContentConfig(
+        system_instruction=system,
+        temperature=temperature,
+        response_mime_type="application/json",
     )
-    raw = response.text or ""
-    return _parse_json(raw), raw
+
+    if client is not None:
+        response = client.models.generate_content(
+            model=MODEL_CHAIN[0], contents=user, config=config
+        )
+        raw = response.text or ""
+        return _parse_json(raw), raw
+
+    last_error: Exception | None = None
+    for key in _api_keys():
+        candidate = genai.Client(api_key=key)
+        for model in MODEL_CHAIN:
+            try:
+                response = candidate.models.generate_content(
+                    model=model, contents=user, config=config
+                )
+                raw = response.text or ""
+                return _parse_json(raw), raw
+            except Exception as exc:
+                if not _is_quota_error(exc):
+                    raise
+                last_error = exc
+                continue
+
+    raise AllQuotaExhausted(
+        "Every configured Gemini key and model is rate limited for today. The free tier "
+        "allows about 20 requests per day per model. Add your own key in the sidebar to "
+        f"continue. (last error: {last_error})"
+    )
 
 
 def run_p1(resume_text: str, job_description: str, client=None) -> dict:
@@ -114,7 +180,8 @@ def guess_role(job_description: str) -> str:
 
 def review(resume_text: str, job_description: str, client=None) -> dict:
     """Run the full two-step workflow and return one combined result."""
-    client = client or _client()
+    # No client is created here on purpose: passing None lets _call walk the key and
+    # model chain when one of them is rate limited.
     analysis = run_p1(resume_text, job_description, client=client)
 
     if analysis.get("status") == "invalid_input":

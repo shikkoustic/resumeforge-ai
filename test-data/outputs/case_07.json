@@ -1,0 +1,62 @@
+{
+  "case": {
+    "no": 7,
+    "type": "Normal",
+    "resume": "resume_F_no_internship.txt",
+    "jd": "jd_sde_intern.txt",
+    "short_input": "Fresher, no internship, vs SDE Intern JD",
+    "expected": "Mid score; no internship is noted but DSA strength is credited"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 65,
+      "score_breakdown": {
+        "hard_skills": 30,
+        "project_evidence": 15,
+        "measurable_impact": 5,
+        "keywords": 8,
+        "structure": 7
+      },
+      "score_reason": "The candidate meets core technical requirements like Java and DSA, but lacks evidence of object-oriented design application and professional experience. The resume is very sparse for a B.Tech student.",
+      "missing_skills": [
+        {
+          "skill": "Object-oriented design",
+          "jd_evidence": "Understanding of object-oriented design"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Built a command line to-do manager in Java with file persistence.",
+          "problem": "Lacks measurable impact or specific technical depth regarding the implementation."
+        },
+        {
+          "original": "Volunteer, Technical Fest",
+          "problem": "Vague entry; lacks description of responsibilities or contributions."
+        }
+      ],
+      "red_flags": [
+        "Resume is extremely brief for a B.Tech student",
+        "No mention of internships or professional work experience",
+        "Lack of detail on technical projects beyond basic functionality"
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Built a command line to-do manager in Java with file persistence.",
+        "improved": "Engineered a Java-based command-line to-do manager featuring persistent data storage using file I/O operations.",
+        "why_better": "Replaces the generic 'built' with 'engineered' and clarifies the technical implementation of file persistence.",
+        "added_metric": false
+      },
+      {
+        "original": "Volunteer, Technical Fest",
+        "improved": "Served as a volunteer for the Technical Fest, assisting in the coordination and execution of event logistics.",
+        "why_better": "Provides context to the role by specifying the nature of the contribution to the event.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 65, 1 missing, 2 rewrites"
+}

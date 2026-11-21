@@ -86,6 +86,21 @@ def check(case: dict, result: dict, resume_text: str) -> tuple[str, str]:
     return "REVIEW", f"score {score}, {len(analysis.get('missing_skills', []))} missing, {len(rewrites)} rewrites"
 
 
+def apply_manual(case: dict, verdict: str, note: str) -> tuple[str, str]:
+    """Settle a REVIEW verdict from test-data/manual-verdicts.json.
+
+    The automated checks can only tell whether a rule was broken. Whether a score is
+    sensible is a human judgement, recorded in that file so the table is reproducible.
+    """
+    if verdict != "REVIEW":
+        return verdict, note
+    manual = json.loads((ROOT / "test-data" / "manual-verdicts.json").read_text())
+    entry = manual.get(str(case["no"]))
+    if entry:
+        return entry["verdict"], entry["note"]
+    return verdict, note
+
+
 def short(text: str, limit: int = 70) -> str:
     text = " ".join((text or "").split())
     return text if len(text) <= limit else text[: limit - 1] + "…"
@@ -94,7 +109,6 @@ def short(text: str, limit: int = 70) -> str:
 def main() -> int:
     cases = json.loads((INPUTS / "cases.json").read_text())
     OUTPUTS.mkdir(parents=True, exist_ok=True)
-    client = resumeforge._client()
     rows = []
 
     for case in cases:
@@ -102,13 +116,25 @@ def main() -> int:
         jd_text = (INPUTS / case["jd"]).read_text(encoding="utf-8")
         print(f"[{case['no']:>2}/{len(cases)}] {case['short_input']} ... ", end="", flush=True)
 
+        # Resume support: a case that already has a saved, non-errored result is not re-run.
+        # The free tier is small, so re-running finished cases wastes the day's quota.
+        cached_path = OUTPUTS / f"case_{case['no']:02d}.json"
+        if "--rerun-all" not in sys.argv and cached_path.exists():
+            cached = json.loads(cached_path.read_text())
+            if "error" not in cached.get("result", {}):
+                verdict, note = apply_manual(case, cached["verdict"], cached["note"])
+                print(f"{verdict} — {note} (cached)")
+                rows.append((case, verdict, note))
+                continue
+
         try:
-            result = resumeforge.review(resume_text, jd_text, client=client)
+            result = resumeforge.review(resume_text, jd_text)
             verdict, note = check(case, result, resume_text)
         except Exception as exc:
             result = {"error": f"{type(exc).__name__}: {exc}"}
             verdict, note = "Fail", result["error"]
 
+        verdict, note = apply_manual(case, verdict, note)
         print(f"{verdict} — {note}")
         (OUTPUTS / f"case_{case['no']:02d}.json").write_text(
             json.dumps({"case": case, "result": result, "verdict": verdict, "note": note},

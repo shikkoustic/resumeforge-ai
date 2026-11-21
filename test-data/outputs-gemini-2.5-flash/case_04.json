@@ -1,0 +1,63 @@
+{
+  "case": {
+    "no": 4,
+    "type": "Normal",
+    "resume": "resume_E_data_analyst.txt",
+    "jd": "jd_frontend_intern.txt",
+    "short_input": "Data analyst resume vs Frontend Intern JD",
+    "expected": "Low score; most frontend skills listed as missing"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 29,
+      "score_breakdown": {
+        "hard_skills": 4,
+        "project_evidence": 0,
+        "measurable_impact": 15,
+        "keywords": 0,
+        "structure": 10
+      },
+      "score_reason": "The candidate demonstrates strong analytical skills and quantifiable achievements in data analysis, with excellent measurable impact in their projects and internship. However, the resume lacks the core frontend technologies (JavaScript, React, TypeScript, CSS, unit testing, REST API integration) explicitly required for this Frontend Engineer Intern role. The projects and internship experience are entirely data-focused, showing a significant mismatch with the job description.",
+      "missing_skills": [
+        {
+          "skill": "JavaScript fundamentals and hands-on experience with React",
+          "jd_evidence": "Strong JavaScript fundamentals and hands-on experience with React"
+        },
+        {
+          "skill": "TypeScript",
+          "jd_evidence": "Experience with TypeScript in a real project"
+        },
+        {
+          "skill": "REST API integration and handling asynchronous state",
+          "jd_evidence": "Familiarity with REST API integration and handling asynchronous state"
+        },
+        {
+          "skill": "Responsive CSS and cross-browser testing",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
+        },
+        {
+          "skill": "Unit testing with Jest or a similar framework",
+          "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
+        },
+        {
+          "skill": "Next.js",
+          "jd_evidence": "Experience with Next.js"
+        },
+        {
+          "skill": "CI/CD pipelines",
+          "jd_evidence": "Basic understanding of CI/CD pipelines"
+        }
+      ],
+      "weak_bullet_ids": [],
+      "red_flags": [
+        "Candidate's entire experience and skill set is in data analysis, not frontend engineering.",
+        "No evidence of any frontend development skills (JavaScript, React, TypeScript, CSS) despite being a core requirement for the role."
+      ]
+    },
+    "rewrites": [],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 29, 7 missing, 0 rewrites"
+}

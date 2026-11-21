@@ -1,0 +1,92 @@
+{
+  "case": {
+    "no": 9,
+    "type": "Edge",
+    "resume": "resume_G_hinglish.txt",
+    "jd": "jd_frontend_intern.txt",
+    "short_input": "Hinglish resume vs Frontend Intern JD",
+    "expected": "Understands the content and replies in English; rewritten bullets in English"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 43,
+      "score_breakdown": {
+        "hard_skills": 16,
+        "project_evidence": 15,
+        "measurable_impact": 5,
+        "keywords": 4,
+        "structure": 3
+      },
+      "score_reason": "The resume demonstrates basic proficiency in React and JavaScript with some project experience, including REST API integration. However, it lacks several key frontend skills required by the job description, such as TypeScript, responsive CSS, cross-browser testing, and unit testing. The internship experience is primarily backend-focused, and the project descriptions are vague, use Hinglish, and lack specific technical details or deeper impact beyond one mention of user count. The overall structure is brief but the use of Hinglish is a significant professional concern.",
+      "missing_skills": [
+        {
+          "skill": "TypeScript",
+          "jd_evidence": "Experience with TypeScript in a real project"
+        },
+        {
+          "skill": "handling asynchronous state",
+          "jd_evidence": "Familiarity with REST API integration and handling asynchronous state"
+        },
+        {
+          "skill": "code review",
+          "jd_evidence": "Comfortable with Git-based collaboration and code review"
+        },
+        {
+          "skill": "responsive CSS",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
+        },
+        {
+          "skill": "cross-browser testing",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
+        },
+        {
+          "skill": "unit testing with Jest or a similar framework",
+          "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Maine ek e-commerce website banayi thi React aur Node.js use karke, jisme payment gateway bhi integrate kiya tha.",
+          "problem": "Uses Hinglish, lacks specific technical details (e.g., features, specific payment gateway, challenges, personal contribution), and impact."
+        },
+        {
+          "original": "College ke liye ek attendance app banaya, around 200 students ne use kiya.",
+          "problem": "Uses Hinglish, lacks technical details (e.g., tech stack, specific features, personal contribution), and the impact is mentioned but not elaborated."
+        },
+        {
+          "original": "Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.",
+          "problem": "Uses Hinglish, vague ('backend pe kaam kiya', 'mostly APIs banayi', 'bugs fix kiye' - what kind of APIs, what kind of bugs, what impact, what was the personal contribution?). Also, it's backend-focused for a frontend role."
+        }
+      ],
+      "red_flags": [
+        "Resume contains Hinglish in project and internship descriptions, which is unprofessional for a technical resume.",
+        "Internship duration is very short (1 month).",
+        "Internship experience is primarily backend-focused, which is less relevant for a Frontend Engineer Intern role."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Maine ek e-commerce website banayi thi React aur Node.js use karke, jisme payment gateway bhi integrate kiya tha.",
+        "improved": "Developed an e-commerce website using React and Node.js, integrating a payment gateway.",
+        "why_better": "Replaces Hinglish with professional English, uses a stronger verb, and clearly states the technologies and key feature (payment gateway integration).",
+        "added_metric": false
+      },
+      {
+        "original": "College ke liye ek attendance app banaya, around 200 students ne use kiya.",
+        "improved": "Developed a college attendance application used by approximately 200 students.",
+        "why_better": "Replaces Hinglish with professional English, uses a stronger verb, and highlights the user impact (200 students) already present in the resume.",
+        "added_metric": true
+      },
+      {
+        "original": "Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.",
+        "improved": "Contributed to backend development, creating APIs and resolving bugs for company systems.",
+        "why_better": "Replaces Hinglish with professional English, uses a stronger verb ('Contributed'), and clarifies the backend tasks (API creation, bug resolution) without inventing details.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "Pass",
+  "note": "content understood, feedback returned in English"
+}

@@ -76,6 +76,7 @@ with st.sidebar:
 
     st.divider()
     st.caption(f"Model: `{resumeforge.MODEL}`  ·  2 prompts, run in sequence")
+    st.caption("Falls back to another model or key if one hits its daily free-tier limit.")
 
 
 # -------------------------------------------------------------------------- header
@@ -137,11 +138,9 @@ if go:
     else:
         status = st.status("Starting review...", expanded=True)
         try:
-            client = resumeforge._client()
-
             status.update(label="Step 1 of 2 — analysing gaps against the JD...")
             analysis = resumeforge.run_p1(
-                st.session_state.resume_text, st.session_state.jd_text, client=client
+                st.session_state.resume_text, st.session_state.jd_text
             )
 
             if analysis.get("status") == "invalid_input":
@@ -160,7 +159,6 @@ if go:
                     resume_text=st.session_state.resume_text,
                     target_role=resumeforge.guess_role(st.session_state.jd_text),
                     weak_bullets=weak,
-                    client=client,
                 )
                 status.update(label="Review complete", state="complete")
                 st.session_state.result = {
@@ -168,6 +166,9 @@ if go:
                     "rewrites": rewrites.get("rewrites", []),
                     "invalid": False,
                 }
+        except resumeforge.AllQuotaExhausted as exc:
+            status.update(label="Daily quota reached", state="error")
+            st.session_state.error = str(exc)
         except resumeforge.ConfigError as exc:
             status.update(label="Not configured", state="error")
             st.session_state.error = str(exc)
