@@ -12,10 +12,9 @@ any that are not here.
 
 **On screen:** the landing page at forge-resume.streamlit.app, or just the title slide.
 
-> "Every placement season, students send the same resume to twenty or thirty companies.
-> They get rejected at the screening stage and never find out why.
-> ResumeForge AI compares a resume against one specific job description and tells the
-> student exactly what is missing — and rewrites their weak bullet points."
+> "Students send the same resume to thirty companies, get rejected at screening, and
+> never learn why. ResumeForge AI compares a resume against one job description, shows
+> what's missing, and rewrites the weak bullets."
 
 ---
 
@@ -23,21 +22,19 @@ any that are not here.
 
 **On screen:** open `docs/reel-comparison.html` full screen.
 
-> "Our Milestone 1 prompt did everything in one call — it scored the resume and rewrote
-> the bullets together. It looked fine, until we checked the output against the resume.
+> "Our Milestone 1 prompt scored and rewrote in one call. It looked fine — until we
+> checked it against the resume.
 >
-> Here is one bullet. The resume only says 'Worked on the company website and fixed bugs.'
-> No numbers anywhere.
+> The resume only says 'Worked on the company website and fixed bugs.' No numbers.
 >
-> The old prompt turned that into 'Diagnosed and resolved twelve critical UI bugs,
-> improving user satisfaction scores.' The resume never said twelve. It never mentioned
-> satisfaction scores. The model invented both — so a student pasting this into their CV
-> would be lying to a recruiter without knowing it.
+> The old prompt turned that into 'resolved twelve critical UI bugs, improving user
+> satisfaction scores.' It invented both. A student pasting that into their CV would be
+> lying to a recruiter without knowing it.
 >
-> So we split the work into two prompts. One prompt only judges. A second prompt only
-> rewrites, and it is allowed to use facts already in the resume and nothing else.
+> So we split it in two. One prompt only judges. The other only rewrites, using facts
+> already in the resume and nothing else.
 >
-> Same resume, same model. Invented figures went from nine, to zero."
+> Same resume, same model — invented figures went from nine to zero."
 
 **Point at the 9 / 13 / 0 numbers as you say the last line.**
 If you have a spare two seconds, add:
@@ -60,15 +57,13 @@ preview card — it is a labelled illustration, not a real result.
 
 **Wait for the result. Scroll slowly.**
 
-> "It scores seventy-one out of a hundred, broken down across five rubric dimensions —
-> hard skills, project evidence, measurable impact, keywords and structure.
+> "Seventy-one out of a hundred, broken down across five rubric dimensions.
 >
-> Here are the skills the job description asks for that this resume does not show. Each
-> one quotes the exact line from the job description it came from, so nothing is an
-> unsourced opinion.
+> These are the skills the job description asks for that the resume doesn't show — each
+> one quoting the exact line it came from, so nothing is an unsourced opinion.
 >
-> And these are the rewritten bullets. Every one is tagged 'strictly grounded' — meaning
-> it did not invent a single number or technology that was not already in the resume."
+> And the rewritten bullets. Every one tagged 'strictly grounded': no number or
+> technology that wasn't already in the resume."
 
 ---
 
@@ -76,15 +71,14 @@ preview card — it is a labelled illustration, not a real result.
 
 **On screen:** scroll back to the top, or the repository page.
 
-> "So far: two prompts, three versions, and thirteen test cases — twelve pass, one fails.
-> We report the failure rather than hide it: the model over-credits thin projects.
+> "Two prompts, three versions, thirteen test cases — twelve pass, one fails, and we
+> report the failure: it over-credits thin projects.
 >
-> We also benchmarked four models across two providers. All four held the no-fabrication
-> guarantee, which tells us the result comes from the prompt design, not from one lucky
-> model.
+> We benchmarked four models across two providers. All four held the no-fabrication
+> guarantee, so the result comes from the prompt design, not one lucky model.
 >
-> For Milestone 3 we want to fix the scoring consistency, and validate our scores against
-> real placement-cell feedback."
+> For Milestone 3: fix scoring consistency, and validate against real placement-cell
+> feedback."
 
 ---
 
