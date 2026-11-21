@@ -333,7 +333,7 @@ elif st.session_state.current_page == "analyze":
             )
             st.caption(
                 "P1 is instructed to refuse rather than guess when the input is not a resume "
-                "and a job description. See test cases 11-13."
+                "and a job description. See test cases 12 and 13."
             )
         else:
             col_score, col_bars = st.columns([1, 1.6], gap="large")

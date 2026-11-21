@@ -482,7 +482,26 @@ one. The prompt-level result — that splitting judging from writing removes fab
 held on both.</p>
 
 <h3>Screenshots of real runs</h3>
-{TODO.format("2–3 screenshots of real runs, each captioned with its test number")}
+<p class="cap">All three are real runs on the deployed app at
+https://forge-resume.streamlit.app, not mock-ups.</p>
+
+<img src="screenshots/test1-score.jpg" style="border:0.5pt solid #D9D3F7;border-radius:2mm;">
+<p class="cap"><b>Test 1</b> — the weak frontend resume against the Frontend Engineer
+Intern JD. Match score 71 with the five rubric dimensions scored separately: hard skills
+20/40, project evidence 25/25, measurable impact 15/15, role keywords 4/10, structure
+8/10.</p>
+
+<img src="screenshots/test1-rewrites.jpg" style="border:0.5pt solid #D9D3F7;border-radius:2mm;">
+<p class="cap"><b>Test 1, continued</b> — P2's grounded rewrites. Each pair shows the
+original bullet, the rewrite, and why it is better. Every rewrite carries the "Strictly
+grounded" badge, meaning no number or technology was introduced that is not already in the
+resume. "Did a project on web development" becomes a specific statement without inventing
+a metric the resume never gave.</p>
+
+<img src="screenshots/test13-refusal.jpg" style="border:0.5pt solid #D9D3F7;border-radius:2mm;">
+<p class="cap"><b>Test 13</b> — a cooking recipe pasted in place of a resume. P1 returns
+<code>invalid_input</code> and the app refuses with a reason instead of scoring nonsense.
+P2 is never called, so an invalid input costs one API call rather than two.</p>
 
 <h3>Known limitations and what we will try next</h3>
 <table>
