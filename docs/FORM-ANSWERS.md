@@ -14,7 +14,7 @@ evaluators check this, and a mismatch loses marks.
 | 4 | Team leader name | `Shikhar Srivastava` |
 | 5 | Leader enrollment no. | `S24CSEU0962` |
 | 6 | Group (batch) | `B01-B12` |
-| 7 | Enrollment numbers of all members | One per line, leader included: `S24CSEU0962` (Shikhar Srivastava), then **[TO FILL]** for Vanshika Gupta, Ishita Sahai, Adarsh Raj |
+| 7 | Enrollment numbers of all members | One per line, leader included: `S24CSEU0962` (Shikhar Srivastava), `S24CSEU1135` (Vanshika Gupta), `S24CSEU1050` (Ishita Sahai), `S24CSEU1061` (Adarsh Raj) |
 | 8 | Project type (at most 2) | `Custom web app` + `Prompt workflow / chaining` — pick the two closest to these on the form |
 | 9 | Main AI tool and model | `openai/gpt-oss-120b on Groq` |
 | 10 | Number of prompts | `2` |
@@ -64,9 +64,9 @@ Measurement harness
 
 ```
 S24CSEU0962 - Shikhar Srivastava - Prompt design and engine: wrote P1 and P2, took them through v1-v3, built the app and the provider fallback chain
-[TO FILL] - Vanshika Gupta - Testing: designed the 13 test cases including the edge and invalid cases, ran the suite and recorded the verdicts
-[TO FILL] - Ishita Sahai - Documentation and diagrams: produced the four Section 2 diagrams and wrote the Milestone 2 report and technical report
-[TO FILL] - Adarsh Raj - Deployment and measurement: deployed to Streamlit Cloud, set up the repository structure, ran the v1/v2/v3 measurement harness
+S24CSEU1135 - Vanshika Gupta - Testing: designed the 13 test cases including the edge and invalid cases, ran the suite and recorded the verdicts
+S24CSEU1050 - Ishita Sahai - Documentation and diagrams: produced the four Section 2 diagrams and wrote the Milestone 2 report and technical report
+S24CSEU1061 - Adarsh Raj - Deployment and measurement: deployed to Streamlit Cloud, set up the repository structure, ran the v1/v2/v3 measurement harness
 ```
 
 These must match Section 7 of the PDF exactly.

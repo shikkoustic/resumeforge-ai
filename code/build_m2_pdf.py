@@ -25,17 +25,17 @@ TEAM = [
      "model/key fallback chain",
      "prompts/final/P1_gap_analysis.txt, prompts/final/P2_bullet_rewrite.txt, "
      "code/app.py, code/ui.py, code/resumeforge.py", 31),
-    ("Vanshika Gupta", TODO.format("enrollment no."), "Testing",
+    ("Vanshika Gupta", "S24CSEU1135", "Testing",
      "Designed the 13 test cases including the 3 edge and 2 invalid cases; ran the suite "
      "and recorded the verdicts",
      "test-data/inputs/cases.json, test-data/outputs/, test-data/manual-verdicts.json, "
      "docs/test-table.md", 23),
-    ("Ishita Sahai", TODO.format("enrollment no."), "Documentation and diagrams",
+    ("Ishita Sahai", "S24CSEU1050", "Documentation and diagrams",
      "Produced the four Section 2 diagrams and wrote the Milestone 2 report and the "
      "technical report",
      "docs/diagrams/1-4*.svg, docs/M2_PE-B01-27_ResumeForgeAI.pdf, "
      "docs/Rangers_TechnicalReport.pdf", 23),
-    ("Adarsh Raj", TODO.format("enrollment no."), "Deployment and measurement",
+    ("Adarsh Raj", "S24CSEU1061", "Deployment and measurement",
      "Deployed the app to Streamlit Community Cloud, set up the repository structure, and "
      "ran the v1/v2/v3 measurement harness",
      "README.md, requirements.txt, docs/DEPLOYMENT.md, docs/iteration-measurements.md, "
@@ -221,6 +221,8 @@ li { margin-bottom: 1.1mm; }
 
 def build() -> str:
     test_table = md_table_to_html((DOCS / "test-table.md").read_text())
+    bake = (DOCS / "model-bakeoff.md").read_text()
+    bake_table = md_table_to_html(bake[bake.index("| Model"):])
     meas = (DOCS / "iteration-measurements.md").read_text()
     meas_table = md_table_to_html(meas[meas.index("| Version"):meas.index("Raw results")])
 
@@ -428,6 +430,27 @@ Django and PostgreSQL as missing rather than inferring them from Python and SQL.
 verdict needed human judgement — whether a score is sensible — it is recorded in
 <code>test-data/manual-verdicts.json</code> so the table is reproducible.</p>
 
+<h3>Model bakeoff</h3>
+<p>Because the prompts are stored as files and the model is a configuration value, the
+whole 13-case suite can be re-run against any model without touching a prompt. We ran it
+on four: three open-weight models on Groq and one Gemini model, 52 reviews in total. Every
+metric below is computed automatically, so no human judgement enters the comparison.</p>
+{bake_table}
+<p><b>What this shows.</b> Every model returned valid JSON on all 13 cases, fabricated
+nothing, refused both invalid inputs, avoided the Django-from-Python inference trap and
+answered the Hinglish resume in English. The prompt-level guarantees therefore hold across
+four models and two providers, which is far better evidence that the design is sound than
+any single model passing would be.</p>
+<p>The models separate only on judgement quality. <code>qwen3.8-27b</code> discriminates
+best between well- and badly-matched resumes (73.2 against 70.7) but takes more than twice
+as long per review and scores the one-line resume at 25.
+<code>gemini-3.1-flash-lite</code> is by far the fastest at 6.1 seconds but is the most
+generous to a near-empty resume, at 35. <code>gpt-oss-20b</code> is poorly calibrated: it
+gave the mechanical-engineering resume 65 against a software role, where the other three
+gave 15 to 32. <code>gpt-oss-120b</code> is the best balance — second-best separation, the
+strictest handling of an empty resume, and acceptable latency — so it is the model the
+deployed app uses. That choice is now an evidenced one rather than an assertion.</p>
+
 <h3>The same tests on a different model</h3>
 <p>The full 13-case suite was run twice on the same prompts and the same inputs: once on
 <code>gemini-3.1-flash-lite</code> (19 Nov) and once on <code>openai/gpt-oss-120b</code>
@@ -469,7 +492,8 @@ held on both.</p>
 
 <div class="pagebreak"></div>
 <h2>5. Repository</h2>
-{TODO.format("one screenshot of the GitHub repository page")}
+<img src="screenshots/repo.png" style="border:0.5pt solid #D9D3F7;border-radius:2mm;">
+<p class="cap">github.com/shikkoustic/resumeforge-ai — public, no sign-in required.</p>
 <p><b>What changed since Milestone 1.</b></p>
 <ul>
   <li>The repository was created and the Milestone 1 prompt committed as the v1 baseline,

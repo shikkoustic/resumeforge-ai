@@ -14,8 +14,15 @@ from build_m2_pdf import CSS, DOCS, md_table_to_html, render
 
 ROOT = Path(__file__).resolve().parent.parent
 
+BAKE = (DOCS / "model-bakeoff.md").read_text()
+bake_table = md_table_to_html(BAKE[BAKE.index("| Model"):])
+
 HTML = f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}
-h1 {{ font-size: 16pt; }} body {{ font-size: 9pt; }}
+h1 {{ font-size: 15pt; }} body {{ font-size: 8.2pt; line-height: 1.34; }}
+h2 {{ font-size: 10.5pt; margin: 4mm 0 1.8mm 0; }}
+p {{ margin: 0 0 1.6mm 0; }} li {{ margin-bottom: 0.8mm; }}
+table {{ font-size: 7.4pt; margin: 1.5mm 0 2.5mm 0; }}
+@page {{ margin: 12mm 12mm 12mm 12mm; }}
 </style></head><body>
 
 <h1>ResumeForge AI — Technical Report</h1>
@@ -31,11 +38,9 @@ behind the engine: <code>resume_io.py</code>, which extracts text from an upload
 raises a readable error for encrypted or image-only files, and
 <code>prompt_loader.py</code>, which reads the prompt text from files in
 <code>prompts/final/</code> at run time.</p>
-<p>That last choice is deliberate. The prompts are plain text files, not string literals in
-the source, so the running application, the repository and this report all quote exactly
-the same text and cannot drift apart.</p>
-<p>Nothing the user pastes is stored. The application holds the resume only in Streamlit's
-per-session state for the lifetime of the page.</p>
+<p>That last choice is deliberate: the prompts are plain text files, not string literals,
+so the application, the repository and this report quote the same text and cannot drift
+apart. Nothing the user pastes is stored.</p>
 
 <h2>2. Tools and models</h2>
 <p>The primary model is <code>openai/gpt-oss-120b</code>, an open-weight model served by
@@ -101,6 +106,20 @@ than one model's output, and both runs are kept in the repository.</p>
 all three versions returned valid JSON in 5/5 runs on both models, so our expected failure
 mode was not the real one.</p>
 
+<p><b>Model bakeoff.</b> Because the prompts live in files and the model is a
+configuration value, the whole suite can be re-run against any model without editing a
+prompt. We ran all 13 cases on four models — three open-weight models on Groq and one
+Gemini model, 52 reviews in total:</p>
+{bake_table}
+<p>Every model returned valid JSON on all 13 cases, fabricated nothing, refused both
+invalid inputs, avoided the inference trap and answered the Hinglish resume in English.
+The prompt-level guarantees hold across four models and two providers. The models differ
+only in judgement: <code>qwen3.8-27b</code> discriminates best but is twice as slow;
+<code>gemini-3.1-flash-lite</code> is fastest but most generous to a near-empty resume;
+<code>gpt-oss-20b</code> is poorly calibrated, scoring a mechanical-engineering resume 65
+against a software role where the others gave 15–32. <code>gpt-oss-120b</code> is the best
+balance and is what the deployed app runs.</p>
+
 <h2>5. Limitations</h2>
 <ul>
   <li><b>The score is not reproducible.</b> Five runs of v3 on identical input at
@@ -124,8 +143,6 @@ mode was not the real one.</p>
   <li><b>Scores are not validated against human judgement.</b> No recruiter has rated the
       same resumes, so the absolute number is unproven; only the relative ranking has been
       examined.</li>
-  <li><b>English-first.</b> A Hinglish resume was understood and answered correctly in
-      English, but no non-English output path has been designed or tested.</li>
 </ul>
 
 </body></html>"""

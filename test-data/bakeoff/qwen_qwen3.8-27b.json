@@ -1,0 +1,29 @@
+{
+  "provider": "groq",
+  "model": "qwen/qwen3.8-27b",
+  "valid_json": 13,
+  "total": 13,
+  "fabricated": 0,
+  "refusals_ok": 2,
+  "trap_ok": 1,
+  "hinglish_ok": 1,
+  "separation": 73.2,
+  "empty_resume": 25,
+  "secs_per_review": 36.0,
+  "scores": {
+    "1": 42,
+    "2": 95,
+    "3": 88,
+    "4": 15,
+    "5": 15,
+    "6": 45,
+    "7": 68,
+    "8": 25,
+    "9": 42,
+    "10": 25,
+    "11": 35,
+    "12": 0,
+    "13": 0
+  },
+  "failures": []
+}

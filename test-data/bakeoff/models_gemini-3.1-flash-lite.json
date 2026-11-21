@@ -1,0 +1,29 @@
+{
+  "provider": "gemini",
+  "model": "models/gemini-3.1-flash-lite",
+  "valid_json": 13,
+  "total": 13,
+  "fabricated": 0,
+  "refusals_ok": 2,
+  "trap_ok": 1,
+  "hinglish_ok": 1,
+  "separation": 67,
+  "empty_resume": 35,
+  "secs_per_review": 6.1,
+  "scores": {
+    "1": 52,
+    "2": 92,
+    "3": 92,
+    "4": 15,
+    "5": 25,
+    "6": 55,
+    "7": 65,
+    "8": 35,
+    "9": 52,
+    "10": 35,
+    "11": 48,
+    "12": 0,
+    "13": 0
+  },
+  "failures": []
+}

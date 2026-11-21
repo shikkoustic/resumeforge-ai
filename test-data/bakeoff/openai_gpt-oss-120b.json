@@ -1,0 +1,29 @@
+{
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "valid_json": 13,
+  "total": 13,
+  "fabricated": 0,
+  "refusals_ok": 2,
+  "trap_ok": 1,
+  "hinglish_ok": 1,
+  "separation": 70.7,
+  "empty_resume": 13,
+  "secs_per_review": 16.6,
+  "scores": {
+    "1": 58,
+    "2": 100,
+    "3": 94,
+    "4": 29,
+    "5": 32,
+    "6": 33,
+    "7": 84,
+    "8": 18,
+    "9": 69,
+    "10": 13,
+    "11": 57,
+    "12": 0,
+    "13": 0
+  },
+  "failures": []
+}
