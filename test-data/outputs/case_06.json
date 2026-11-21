@@ -10,15 +10,15 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 55,
+      "match_score": 37,
       "score_breakdown": {
-        "hard_skills": 25,
-        "project_evidence": 10,
+        "hard_skills": 27,
+        "project_evidence": 0,
         "measurable_impact": 0,
-        "keywords": 10,
-        "structure": 10
+        "keywords": 5,
+        "structure": 5
       },
-      "score_reason": "The candidate possesses core required skills like Python, Django, and PostgreSQL, but the resume lacks specific project evidence demonstrating these skills in a professional or complex context, and there is a complete absence of measurable impact metrics.",
+      "score_reason": "Partial skill match (Python, Django, PostgreSQL, Docker) but missing Django REST Framework, pytest, Celery; no detailed project evidence or measurable impact; limited keyword usage; resume is brief but lacks depth.",
       "missing_skills": [
         {
           "skill": "Django REST Framework",
@@ -36,36 +36,45 @@
       "weak_bullet_ids": [
         {
           "original": "- Online shopping website.",
-          "problem": "Lacks technical depth, stack details, and measurable outcomes."
+          "problem": "No description of technologies used, role, or impact."
         },
         {
           "original": "- Chat application.",
-          "problem": "Lacks technical depth, stack details, and measurable outcomes."
+          "problem": "No description of backend implementation, scalability, or outcomes."
+        },
+        {
+          "original": "Completed 14 online courses in full stack development and machine learning.",
+          "problem": "Vague statement without specifying relevant courses or certifications."
         }
       ],
       "red_flags": [
-        "Resume contains an excessive list of skills (keyword stuffing) without evidence of application.",
-        "No measurable impact or metrics provided for projects.",
-        "Projects are described with extremely vague, generic titles.",
-        "CGPA is below the typical threshold for competitive internship roles."
+        "Missing several core required skills (Django REST Framework, pytest, Celery)",
+        "No concrete project details demonstrating backend experience",
+        "Absence of measurable outcomes or metrics"
       ]
     },
     "rewrites": [
       {
         "original": "- Online shopping website.",
-        "improved": "Developed an online shopping platform utilizing Node.js and MongoDB to manage product inventory and user transactions.",
-        "why_better": "Replaces the vague description with specific backend technologies listed in the resume skills section.",
+        "improved": "Built a full\u2011stack online shopping website, handling product listings and user transactions.",
+        "why_better": "Adds a strong action verb and specifies key backend responsibilities, turning a fragment into a clear achievement.",
         "added_metric": false
       },
       {
         "original": "- Chat application.",
-        "improved": "Engineered a real-time chat application using Express and WebSocket protocols to facilitate seamless user communication.",
-        "why_better": "Uses stronger action verbs and specifies the backend framework used for the application.",
+        "improved": "Developed a real\u2011time chat application with server\u2011side messaging logic and persistent user sessions.",
+        "why_better": "Uses an active verb and highlights backend implementation details relevant to the target role.",
+        "added_metric": false
+      },
+      {
+        "original": "Completed 14 online courses in full stack development and machine learning.",
+        "improved": "Completed 14 online courses covering full\u2011stack development and machine learning concepts.",
+        "why_better": "Clarifies the scope of the courses without inventing new credentials, improving specificity.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 55, 3 missing, 2 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "hard skills 25/40 but project evidence 10/25; explicitly flags keyword stuffing"
 }

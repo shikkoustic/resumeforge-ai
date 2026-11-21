@@ -11,7 +11,7 @@ Problem **C9** from the problem pool — resume feedback against a job descripti
 | Team ID | PE-B01-27 |
 | Team name | Rangers |
 | Batch group | B01–B12 |
-| Prototype | _(deployment pending — see `docs/DEPLOYMENT.md`)_ |
+| Prototype | **https://forge-resume.streamlit.app** |
 
 **Team members:** Shikhar Srivastava (leader), Vanshika Gupta, Ishita Sahai, Adarsh Raj
 

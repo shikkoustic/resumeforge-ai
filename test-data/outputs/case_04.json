@@ -10,92 +10,96 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 15,
+      "match_score": 29,
       "score_breakdown": {
-        "hard_skills": 5,
+        "hard_skills": 6,
         "project_evidence": 0,
-        "measurable_impact": 0,
-        "keywords": 5,
-        "structure": 5
+        "measurable_impact": 15,
+        "keywords": 0,
+        "structure": 8
       },
-      "score_reason": "The candidate's profile is heavily focused on Data Analytics and lacks the core Frontend Engineering stack (React, JavaScript, TypeScript) required for the role.",
+      "score_reason": "Core frontend skills are absent; resume shows strong data\u2011analysis work with measurable impact but no relevant projects or keywords for the frontend intern role.",
       "missing_skills": [
         {
-          "skill": "JavaScript",
-          "jd_evidence": "Strong JavaScript fundamentals"
+          "skill": "JavaScript fundamentals",
+          "jd_evidence": "Strong JavaScript fundamentals and hands-on experience with React"
         },
         {
           "skill": "React",
-          "jd_evidence": "hands-on experience with React"
+          "jd_evidence": "Strong JavaScript fundamentals and hands-on experience with React"
         },
         {
           "skill": "TypeScript",
           "jd_evidence": "Experience with TypeScript in a real project"
         },
         {
-          "skill": "REST API",
-          "jd_evidence": "Familiarity with REST API integration"
+          "skill": "REST API integration",
+          "jd_evidence": "Familiarity with REST API integration and handling asynchronous state"
         },
         {
-          "skill": "CSS",
-          "jd_evidence": "Working knowledge of responsive CSS"
+          "skill": "Responsive CSS",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
         },
         {
-          "skill": "Jest",
+          "skill": "Cross\u2011browser testing",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
+        },
+        {
+          "skill": "Unit testing with Jest",
           "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
         }
       ],
       "weak_bullet_ids": [
         {
           "original": "Analysed 3 years of campus placement data (4,200 records) in Python and pandas, and published a Tableau dashboard used by the placement cell.",
-          "problem": "Irrelevant to Frontend Engineering role."
+          "problem": "Irrelevant to frontend development; showcases data analysis instead of UI skills."
         },
         {
           "original": "Built a churn prediction model in scikit-learn reaching 0.81 ROC-AUC on a public telecom dataset.",
-          "problem": "Irrelevant to Frontend Engineering role."
+          "problem": "Focuses on machine\u2011learning, not applicable to the frontend intern role."
         },
         {
           "original": "Wrote 40+ SQL queries against a PostgreSQL warehouse to build weekly sales reports.",
-          "problem": "Irrelevant to Frontend Engineering role."
+          "problem": "Backend/data\u2011analysis task; does not demonstrate required frontend competencies."
         },
         {
           "original": "Automated a manual Excel report in Python, saving roughly 6 hours per week.",
-          "problem": "Irrelevant to Frontend Engineering role."
+          "problem": "Automation of Excel reports is unrelated to building web dashboards with React."
         }
       ],
       "red_flags": [
-        "Zero overlap between candidate's technical stack (Data Science/Analytics) and the job requirements (Frontend Engineering).",
-        "No evidence of web development projects or experience."
+        "No JavaScript/React/TypeScript experience despite being a frontend role",
+        "Resume emphasizes data\u2011analysis and backend skills, lacking any frontend project or technology exposure"
       ]
     },
     "rewrites": [
       {
         "original": "Analysed 3 years of campus placement data (4,200 records) in Python and pandas, and published a Tableau dashboard used by the placement cell.",
-        "improved": "Visualized 4,200 records of campus placement data by designing and publishing an interactive Tableau dashboard for the university placement cell.",
-        "why_better": "Focuses on the data visualization and dashboard design aspect, which is more relevant to frontend UI/UX presentation than data analysis.",
-        "added_metric": false
+        "improved": "Designed a Tableau dashboard visualizing 3 years of placement data (4,200 records) after processing with Python pandas, enabling the placement cell to monitor trends.",
+        "why_better": "Uses a strong verb, emphasizes UI\u2011focused dashboard creation, and quantifies data volume, showing relevance to frontend visualization tasks.",
+        "added_metric": true
       },
       {
         "original": "Built a churn prediction model in scikit-learn reaching 0.81 ROC-AUC on a public telecom dataset.",
-        "improved": "Engineered a data-driven model using scikit-learn to process telecom datasets, achieving a 0.81 ROC-AUC score.",
-        "why_better": "Reframes the technical implementation to emphasize engineering logic and model performance, which demonstrates analytical rigor useful for frontend data handling.",
-        "added_metric": false
+        "improved": "Developed a churn prediction model with scikit-learn achieving 0.81 ROC\u2011AUC, providing actionable insights that could inform user\u2011interface prioritization.",
+        "why_better": "Highlights analytical work that can guide UI decisions, uses a precise verb, and retains the concrete performance metric.",
+        "added_metric": true
       },
       {
         "original": "Wrote 40+ SQL queries against a PostgreSQL warehouse to build weekly sales reports.",
-        "improved": "Developed 40+ complex SQL queries to extract and structure data from PostgreSQL, facilitating the generation of weekly sales reports.",
-        "why_better": "Highlights the ability to interface with backend databases, a critical skill for frontend engineers working with API-driven data.",
-        "added_metric": false
+        "improved": "Crafted 40+ SQL queries on PostgreSQL to extract data for weekly sales reports, supporting timely business decisions.",
+        "why_better": "Starts with an active verb, frames data extraction as support for decision\u2011making, and keeps the measurable query count.",
+        "added_metric": true
       },
       {
         "original": "Automated a manual Excel report in Python, saving roughly 6 hours per week.",
-        "improved": "Automated manual reporting workflows using Python, streamlining data processing and saving 6 hours of manual effort per week.",
-        "why_better": "Emphasizes process automation and efficiency, demonstrating the ability to build tools that improve operational workflows.",
-        "added_metric": false
+        "improved": "Automated a recurring Excel report using Python, reducing manual effort by ~6 hours weekly.",
+        "why_better": "Uses a stronger verb, clarifies automation scope, and retains the time\u2011saving metric, showing efficiency impact.",
+        "added_metric": true
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 15, 6 missing, 4 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 15; all 6 frontend skills listed missing; no web experience invented"
 }

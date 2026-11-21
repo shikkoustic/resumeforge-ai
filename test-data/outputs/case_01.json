@@ -10,15 +10,15 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 52,
+      "match_score": 61,
       "score_breakdown": {
-        "hard_skills": 16,
-        "project_evidence": 15,
-        "measurable_impact": 8,
-        "keywords": 5,
-        "structure": 8
+        "hard_skills": 20,
+        "project_evidence": 20,
+        "measurable_impact": 10,
+        "keywords": 4,
+        "structure": 7
       },
-      "score_reason": "The candidate has relevant React experience and some measurable impact, but lacks critical technical requirements like TypeScript, REST API integration, and unit testing frameworks specified in the JD.",
+      "score_reason": "Partial alignment: core JavaScript, React and Git skills present; relevant React project shown with usage stats; measurable impact limited to one project; several required skills (TypeScript, REST API, responsive CSS, unit testing) missing; keywords and domain language partially covered; resume is readable but could be more concise and impact\u2011focused.",
       "missing_skills": [
         {
           "skill": "TypeScript",
@@ -29,56 +29,62 @@
           "jd_evidence": "Familiarity with REST API integration and handling asynchronous state"
         },
         {
-          "skill": "Unit testing (Jest)",
-          "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
+          "skill": "Responsive CSS and cross-browser testing",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
         },
         {
-          "skill": "CI/CD",
-          "jd_evidence": "Basic understanding of CI/CD pipelines"
+          "skill": "Unit testing with Jest",
+          "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
         }
       ],
       "weak_bullet_ids": [
         {
           "original": "Did a project on web development using HTML, CSS and some JavaScript.",
-          "problem": "Vague description; lacks technical depth and specific outcomes."
+          "problem": "Vague description; lacks specifics about role, technologies depth, or impact"
         },
         {
           "original": "Worked on the company website and fixed bugs.",
-          "problem": "Lacks specific details on the nature of bugs or the impact of the work."
+          "problem": "Generic statement without details on contributions or outcomes"
         },
         {
           "original": "Helped the team with testing.",
-          "problem": "Extremely vague; does not specify testing methodologies or tools used."
+          "problem": "Unspecific; does not indicate type of testing, tools used, or results"
+        },
+        {
+          "original": "Made a small Python script to clean CSV files for a class assignment.",
+          "problem": "Irrelevant to frontend role and lacks measurable impact"
         }
       ],
-      "red_flags": [
-        "Objective statement is generic and adds no value to the resume.",
-        "Lack of technical depth in internship experience.",
-        "No mention of REST API or asynchronous state handling despite being a core requirement."
-      ]
+      "red_flags": []
     },
     "rewrites": [
       {
         "original": "Did a project on web development using HTML, CSS and some JavaScript.",
-        "improved": "Developed a web project utilizing HTML, CSS, and JavaScript to implement interactive frontend components.",
-        "why_better": "Replaces the vague verb 'did' with 'developed' and clarifies the application of the technologies.",
+        "improved": "Developed a static website using HTML, CSS, and JavaScript to showcase responsive design concepts.",
+        "why_better": "Replaces vague verb \"Did\" with \"Developed\", specifies the artifact (static website) and purpose (responsive design), using only listed technologies.",
         "added_metric": false
       },
       {
         "original": "Worked on the company website and fixed bugs.",
-        "improved": "Contributed to the company website codebase by identifying and resolving functional bugs to improve site stability.",
-        "why_better": "Uses professional terminology to describe the contribution and the outcome of the bug fixes.",
+        "improved": "Diagnosed and resolved front\u2011end bugs on Brightline Softwares\u2019 website, enhancing page stability.",
+        "why_better": "Uses stronger actions \"Diagnosed and resolved\", adds context (front\u2011end bugs, company name) and outcome (enhanced stability) without adding new data.",
         "added_metric": false
       },
       {
         "original": "Helped the team with testing.",
-        "improved": "Assisted the development team in performing quality assurance testing on company web assets.",
-        "why_better": "Provides a more professional description of the testing process without inventing specific methodologies not present in the resume.",
+        "improved": "Assisted QA by executing functional tests on new website features, ensuring cross\u2011browser compatibility.",
+        "why_better": "Specifies the testing type (functional), the target (new website features), and the result (cross\u2011browser compatibility), improving clarity and relevance.",
+        "added_metric": false
+      },
+      {
+        "original": "Made a small Python script to clean CSV files for a class assignment.",
+        "improved": "Created a Python script to automate CSV cleaning for a class assignment, streamlining data preparation.",
+        "why_better": "Swaps weak verb \"Made\" for \"Created\", clarifies automation purpose and benefit (streamlining data preparation) while staying within listed skills.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 52, 4 missing, 3 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 52; flagged TypeScript, REST, Jest, CI/CD; 3 rewrites, none invented a metric"
 }

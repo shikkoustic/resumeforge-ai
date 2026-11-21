@@ -18,42 +18,55 @@ from google.genai import types
 
 import prompt_loader
 
-# The free tier gives only 20 generate_content requests per day on gemini-2.5-flash. That
-# is far too few for a public link that evaluators will click, so the app walks a chain of
-# models and keys and moves on whenever one is rate limited. Measured on 19 Nov 2026.
+# Two providers, walked in order. Groq is primary: measured on this account it allows
+# 1000 requests/day per model against Gemini's ~20, and a review costs two requests.
+# Gemini stays behind it as a second source. Measured 21 Nov 2026.
+#
+# Each entry is (provider, model).
 DEFAULT_MODEL_CHAIN = [
-    "models/gemini-3.1-flash-lite",  # largest free quota of the three, good enough here
-    "gemini-2.5-flash",              # better reasoning, only ~20 requests/day free
-    "models/gemini-flash-lite-latest",
+    ("groq", "openai/gpt-oss-120b"),
+    ("groq", "qwen/qwen3.8-27b"),
+    ("gemini", "models/gemini-3.1-flash-lite"),
+    ("gemini", "gemini-2.5-flash"),
 ]
-MODEL_CHAIN = [
-    m.strip()
-    for m in os.environ.get("RESUMEFORGE_MODEL", ",".join(DEFAULT_MODEL_CHAIN)).split(",")
-    if m.strip()
-]
-MODEL = MODEL_CHAIN[0]
 
 
-def _api_keys() -> list[str]:
-    """Every key we may use, in order.
+def _parse_chain(raw: str) -> list[tuple[str, str]]:
+    """Parse "provider:model,provider:model" from RESUMEFORGE_MODEL."""
+    chain = []
+    for part in raw.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        provider, _, model = part.partition(":")
+        if not model:  # bare model name means Gemini, for backwards compatibility
+            provider, model = "gemini", provider
+        chain.append((provider.strip(), model.strip()))
+    return chain
 
-    GEMINI_API_KEYS may hold several comma-separated keys (one per team member). Each key
-    has its own daily quota, so a second key doubles how many reviews the live demo
-    survives.
+
+_override = os.environ.get("RESUMEFORGE_MODEL", "")
+MODEL_CHAIN = _parse_chain(_override) if _override else list(DEFAULT_MODEL_CHAIN)
+MODEL = MODEL_CHAIN[0][1]
+PROVIDER = MODEL_CHAIN[0][0]
+
+
+def _api_keys(provider: str) -> list[str]:
+    """Every key for one provider, in order.
+
+    Each team member has their own account, so each key carries its own quota. Groq
+    counts quota per organisation, so separate accounts genuinely multiply it.
     """
-    raw = os.environ.get("GEMINI_API_KEYS") or os.environ.get("GEMINI_API_KEY") or ""
-    keys = [k.strip() for k in raw.split(",") if k.strip()]
-    if not keys:
-        raise ConfigError(
-            "No Gemini API key found. Copy .env.example to .env and set GEMINI_API_KEY, "
-            "or add it to Streamlit secrets."
-        )
-    return keys
+    if provider == "groq":
+        raw = os.environ.get("GROQ_API_KEYS") or os.environ.get("GROQ_API_KEY") or ""
+    else:
+        raw = os.environ.get("GEMINI_API_KEYS") or os.environ.get("GEMINI_API_KEY") or ""
+    return [k.strip() for k in raw.split(",") if k.strip()]
 
 
 def _is_quota_error(exc: Exception) -> bool:
     text = str(exc)
-    return "429" in text or "RESOURCE_EXHAUSTED" in text
+    return "429" in text or "RESOURCE_EXHAUSTED" in text or "rate_limit" in text.lower()
 
 
 class AllQuotaExhausted(RuntimeError):
@@ -84,7 +97,7 @@ class ConfigError(RuntimeError):
     pass
 
 
-def _client() -> genai.Client:
+def _legacy_gemini_client() -> genai.Client:
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise ConfigError(
@@ -103,35 +116,52 @@ def _parse_json(raw: str) -> dict:
     return json.loads(text)
 
 
+def _call_groq(key: str, model: str, system: str, user: str, temperature: float) -> str:
+    from groq import Groq
+
+    client = Groq(api_key=key)
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "system", "content": system},
+                  {"role": "user", "content": user}],
+        temperature=temperature,
+        response_format={"type": "json_object"},
+    )
+    return response.choices[0].message.content or ""
+
+
+def _call_gemini(key: str, model: str, system: str, user: str, temperature: float) -> str:
+    client = genai.Client(api_key=key)
+    response = client.models.generate_content(
+        model=model,
+        contents=user,
+        config=types.GenerateContentConfig(
+            system_instruction=system,
+            temperature=temperature,
+            response_mime_type="application/json",
+        ),
+    )
+    return response.text or ""
+
+
+_CALLERS = {"groq": _call_groq, "gemini": _call_gemini}
+
+
 def _call(system: str, user: str, temperature: float, client=None) -> tuple[dict, str]:
     """Send one prompt and return (parsed JSON, raw text).
 
-    Walks every (key, model) pair until one answers. A quota error moves to the next pair;
-    any other error is raised straight away, because retrying a bad prompt on another model
-    just hides the bug.
+    Walks every (provider, model, key) combination until one answers. A quota error moves
+    on; any other error is raised immediately, because silently retrying a broken prompt
+    somewhere else just hides the bug.
     """
-    config = types.GenerateContentConfig(
-        system_instruction=system,
-        temperature=temperature,
-        response_mime_type="application/json",
-    )
-
-    if client is not None:
-        response = client.models.generate_content(
-            model=MODEL_CHAIN[0], contents=user, config=config
-        )
-        raw = response.text or ""
-        return _parse_json(raw), raw
-
     last_error: Exception | None = None
-    for key in _api_keys():
-        candidate = genai.Client(api_key=key)
-        for model in MODEL_CHAIN:
+    tried = 0
+
+    for provider, model in MODEL_CHAIN:
+        for key in _api_keys(provider):
+            tried += 1
             try:
-                response = candidate.models.generate_content(
-                    model=model, contents=user, config=config
-                )
-                raw = response.text or ""
+                raw = _CALLERS[provider](key, model, system, user, temperature)
                 return _parse_json(raw), raw
             except Exception as exc:
                 if not _is_quota_error(exc):
@@ -139,10 +169,14 @@ def _call(system: str, user: str, temperature: float, client=None) -> tuple[dict
                 last_error = exc
                 continue
 
+    if tried == 0:
+        raise ConfigError(
+            "No API key found. Copy .env.example to .env and set GROQ_API_KEYS or "
+            "GEMINI_API_KEYS, or add them to Streamlit secrets."
+        )
     raise AllQuotaExhausted(
-        "Every configured Gemini key and model is rate limited for today. The free tier "
-        "allows about 20 requests per day per model. Add your own key in the sidebar to "
-        f"continue. (last error: {last_error})"
+        "Every configured provider, model and key is rate limited right now. Add your own "
+        f"key in the sidebar to continue. (last error: {last_error})"
     )
 
 

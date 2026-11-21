@@ -10,15 +10,15 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 48,
+      "match_score": 57,
       "score_breakdown": {
-        "hard_skills": 16,
-        "project_evidence": 15,
-        "measurable_impact": 7,
-        "keywords": 5,
-        "structure": 5
+        "hard_skills": 7,
+        "project_evidence": 25,
+        "measurable_impact": 15,
+        "keywords": 2,
+        "structure": 8
       },
-      "score_reason": "The candidate demonstrates basic Python and SQL proficiency but lacks the specific framework and toolchain experience (Django, PostgreSQL, Docker, pytest) required for the role.",
+      "score_reason": "Only Python matches required hard skills; key technologies (Django, PostgreSQL, Docker, pytest, Celery) are missing. Relevant project and internship provide good evidence with measurable numbers, but domain\u2011specific keywords are scarce. Resume format is clear and concise.",
       "missing_skills": [
         {
           "skill": "Django",
@@ -47,46 +47,32 @@
       ],
       "weak_bullet_ids": [
         {
-          "original": "Built a REST API in Python for a library management system, with 9 endpoints and token based authentication.",
-          "problem": "Lacks mention of specific frameworks or technologies used to build the API."
-        },
-        {
           "original": "Wrote SQL queries to generate monthly issue reports from the library database.",
-          "problem": "Vague; does not specify the database system or the complexity of the queries."
+          "problem": "No measurable outcome or impact described"
         },
         {
           "original": "Added 5 endpoints to an existing Python service and wrote their integration tests.",
-          "problem": "Lacks context on the tech stack and the impact of the integration tests."
+          "problem": "Lacks description of impact or results of the added endpoints"
         }
       ],
-      "red_flags": [
-        "No mention of framework experience (Django) despite it being a core requirement.",
-        "Lack of experience with containerization (Docker) or task queues (Celery).",
-        "Resume is very brief and lacks depth in technical problem-solving descriptions."
-      ]
+      "red_flags": []
     },
     "rewrites": [
       {
-        "original": "Built a REST API in Python for a library management system, with 9 endpoints and token based authentication.",
-        "improved": "Developed a Python-based REST API for a library management system featuring 9 endpoints and secure token-based authentication.",
-        "why_better": "Replaces the generic 'built' with 'developed' and emphasizes the security implementation.",
-        "added_metric": false
-      },
-      {
         "original": "Wrote SQL queries to generate monthly issue reports from the library database.",
-        "improved": "Engineered complex SQL queries to automate the generation of monthly issue reports from the library database.",
-        "why_better": "Uses 'engineered' to highlight the technical effort involved in report generation.",
+        "improved": "Developed SQL queries to produce monthly issue reports from the library database.",
+        "why_better": "Replaces weak verb 'Wrote' with 'Developed', clarifies the purpose (producing reports) using existing details; no metric added.",
         "added_metric": false
       },
       {
         "original": "Added 5 endpoints to an existing Python service and wrote their integration tests.",
-        "improved": "Extended an existing Python service by implementing 5 new endpoints and validating functionality through comprehensive integration tests.",
-        "why_better": "Uses 'extended' and 'validating' to better describe the backend development process.",
+        "improved": "Extended Python service with five new endpoints and created integration tests to ensure functionality.",
+        "why_better": "Uses stronger verb 'Extended', specifies the number of endpoints and testing purpose, staying within facts; no metric added.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "Pass",
-  "note": "Django and PostgreSQL both reported missing, not inferred"
+  "auto_verdict": "Pass",
+  "auto_note": "Django and PostgreSQL both reported missing, not inferred"
 }

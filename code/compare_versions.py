@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 INPUTS = ROOT / "test-data" / "inputs"
 RESUME = (INPUTS / "resume_A_frontend_weak.txt").read_text(encoding="utf-8")
 JD = (INPUTS / "jd_frontend_intern.txt").read_text(encoding="utf-8")
-MODEL = resumeforge.MODEL_CHAIN[0]
+PROVIDER, MODEL = resumeforge.MODEL_CHAIN[0]
 DELAY = 3
 
 
@@ -54,15 +54,37 @@ def count_fabricated(rewrites: list) -> int:
 
 
 def raw_call(system: str, user: str, *, temperature=None, force_json: bool) -> str:
-    """One call, returning the raw text so we can see whether it is really JSON."""
-    kwargs = {"system_instruction": system}
+    """One call on the primary provider, returning raw text.
+
+    force_json is what separates v1 from v2: v1 asked for JSON in words only, the way the
+    Milestone 1 prompt did, while v2 onwards constrains the response format. Keeping the
+    call raw lets us see whether the reply really parses.
+    """
+    key = resumeforge._api_keys(PROVIDER)[0]
+
+    if PROVIDER == "groq":
+        from groq import Groq
+
+        kwargs = {}
+        if temperature is not None:
+            kwargs["temperature"] = temperature
+        if force_json:
+            kwargs["response_format"] = {"type": "json_object"}
+        response = Groq(api_key=key).chat.completions.create(
+            model=MODEL,
+            messages=[{"role": "system", "content": system},
+                      {"role": "user", "content": user}],
+            **kwargs,
+        )
+        return response.choices[0].message.content or ""
+
+    cfg = {"system_instruction": system}
     if temperature is not None:
-        kwargs["temperature"] = temperature
+        cfg["temperature"] = temperature
     if force_json:
-        kwargs["response_mime_type"] = "application/json"
-    client = genai.Client(api_key=resumeforge._api_keys()[0])
-    response = client.models.generate_content(
-        model=MODEL, contents=user, config=types.GenerateContentConfig(**kwargs)
+        cfg["response_mime_type"] = "application/json"
+    response = genai.Client(api_key=key).models.generate_content(
+        model=MODEL, contents=user, config=types.GenerateContentConfig(**cfg)
     )
     return response.text or ""
 
@@ -133,7 +155,7 @@ def summarise(name: str, r: dict) -> str:
 
 def main() -> int:
     runs = int(sys.argv[1]) if len(sys.argv) > 1 else 5
-    print(f"Model: {MODEL} · {runs} runs per version · input: weak frontend resume vs "
+    print(f"Model: {PROVIDER}:{MODEL} · {runs} runs per version · input: weak frontend resume vs "
           f"Frontend Intern JD\n")
     results = {}
 
@@ -159,7 +181,7 @@ def main() -> int:
     print("\n" + out)
 
     (ROOT / "docs" / "iteration-measurements.md").write_text(
-        f"# Iteration measurements\n\nModel: `{MODEL}`. {runs} runs per version on the "
+        f"# Iteration measurements\n\nModel: `{PROVIDER}:{MODEL}`. {runs} runs per version on the "
         f"same input (weak frontend resume vs Frontend Intern JD).\n\n{out}\n\n"
         f"Raw results:\n\n```json\n{json.dumps(results, indent=2)}\n```\n",
         encoding="utf-8",

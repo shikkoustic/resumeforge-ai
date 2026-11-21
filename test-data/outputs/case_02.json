@@ -10,41 +10,29 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 92,
+      "match_score": 95,
       "score_breakdown": {
-        "hard_skills": 40,
+        "hard_skills": 35,
         "project_evidence": 25,
         "measurable_impact": 15,
-        "keywords": 8,
-        "structure": 4
+        "keywords": 10,
+        "structure": 10
       },
-      "score_reason": "The candidate is a strong match for the Frontend Engineer Intern role, demonstrating proficiency in the core stack (React, TypeScript, Jest) and providing quantifiable impact in both projects and internship experience.",
+      "score_reason": "Strong alignment with required skills, solid project/internship evidence, clear measurable impact, good use of keywords, and well\u2011structured resume. Only missing explicit mention of cross\u2011browser testing.",
       "missing_skills": [
         {
-          "skill": "CI/CD pipelines",
-          "jd_evidence": "Basic understanding of CI/CD pipelines"
+          "skill": "cross-browser testing",
+          "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
         }
       ],
-      "weak_bullet_ids": [
-        {
-          "original": "Developed a Next.js portfolio site with 94 Lighthouse performance score.",
-          "problem": "Lacks context on the complexity of the site or specific technical challenges overcome."
-        }
-      ],
+      "weak_bullet_ids": [],
       "red_flags": [
-        "Internship dates (May 2025 - July 2025) are in the future relative to standard hiring cycles, verify if this is a typo or future-dated entry."
+        "Missing explicit mention of cross-browser testing skill"
       ]
     },
-    "rewrites": [
-      {
-        "original": "Developed a Next.js portfolio site with 94 Lighthouse performance score.",
-        "improved": "Engineered a high-performance Next.js portfolio site, achieving a 94 Lighthouse performance score through optimized rendering and asset management.",
-        "why_better": "Uses stronger action verbs and clarifies that the score was achieved through specific technical optimization, without inventing metrics.",
-        "added_metric": false
-      }
-    ],
+    "rewrites": [],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 92, 1 missing, 1 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 92 correct, but red flag claims the May-July 2025 internship is 'in the future' - it is Nov 2026"
 }

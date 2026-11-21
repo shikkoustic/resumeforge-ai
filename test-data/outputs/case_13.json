@@ -18,17 +18,14 @@
         "keywords": 0,
         "structure": 0
       },
-      "score_reason": "The provided resume is a recipe for Rajma Chawal and does not contain any professional engineering experience or skills.",
+      "score_reason": "Resume content is not a professional resume",
       "missing_skills": [],
       "weak_bullet_ids": [],
-      "red_flags": [
-        "Resume content is entirely unrelated to the job description",
-        "No technical skills or professional experience listed"
-      ]
+      "red_flags": []
     },
     "rewrites": [],
     "invalid": true
   },
-  "verdict": "Pass",
-  "note": "refused as invalid, score 0"
+  "auto_verdict": "Pass",
+  "auto_note": "refused as invalid, score 0"
 }

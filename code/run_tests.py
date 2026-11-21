@@ -122,7 +122,10 @@ def main() -> int:
         if "--rerun-all" not in sys.argv and cached_path.exists():
             cached = json.loads(cached_path.read_text())
             if "error" not in cached.get("result", {}):
-                verdict, note = apply_manual(case, cached["verdict"], cached["note"])
+                verdict, note = apply_manual(
+                    case,
+                    cached.get("auto_verdict") or cached.get("verdict", "REVIEW"),
+                    cached.get("auto_note") or cached.get("note", ""))
                 print(f"{verdict} — {note} (cached)")
                 rows.append((case, verdict, note))
                 continue
@@ -134,13 +137,16 @@ def main() -> int:
             result = {"error": f"{type(exc).__name__}: {exc}"}
             verdict, note = "Fail", result["error"]
 
-        verdict, note = apply_manual(case, verdict, note)
-        print(f"{verdict} — {note}")
+        # The cache stores the AUTOMATED verdict only. Manual verdicts live in
+        # manual-verdicts.json and are applied on every run, so editing that file is
+        # enough to correct the table without spending quota on a re-run.
         (OUTPUTS / f"case_{case['no']:02d}.json").write_text(
-            json.dumps({"case": case, "result": result, "verdict": verdict, "note": note},
-                       indent=2),
+            json.dumps({"case": case, "result": result,
+                        "auto_verdict": verdict, "auto_note": note}, indent=2),
             encoding="utf-8",
         )
+        verdict, note = apply_manual(case, verdict, note)
+        print(f"{verdict} — {note}")
         rows.append((case, verdict, note))
         time.sleep(DELAY_SECONDS)
 

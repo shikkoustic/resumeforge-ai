@@ -37,3 +37,27 @@ GitHub. It takes about two minutes.
   the repository.
 - If the app sleeps from inactivity, the first visitor wakes it; that takes a few seconds.
   Open it yourself shortly before the evaluation window so it is warm.
+
+## Known issue to fix before submitting
+
+Streamlit Community Cloud runs the app from the **repository root**, so it reads
+`.streamlit/config.toml` at the root — not `code/.streamlit/config.toml`, which is where
+the file currently lives for local development.
+
+Effect: the deployed app ignores the theme and falls back to Streamlit's default (dark
+background, red accent), while running `streamlit run app.py` from inside `code/` looks
+correct.
+
+Fix, once the UI work is finished:
+
+```bash
+mkdir -p .streamlit && git mv code/.streamlit/config.toml .streamlit/config.toml
+```
+
+Then run locally from the repository root instead:
+
+```bash
+./.venv/bin/streamlit run code/app.py
+```
+
+Verify the deployed app in a private window afterwards: the background should be light.

@@ -1,0 +1,102 @@
+{
+  "case": {
+    "no": 8,
+    "type": "Normal",
+    "resume": "resume_A_frontend_weak.txt",
+    "jd": "jd_backend_django.txt",
+    "short_input": "Frontend resume vs Backend Django JD",
+    "expected": "Low score; Django, PostgreSQL, Docker, pytest all missing"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 35,
+      "score_breakdown": {
+        "hard_skills": 10,
+        "project_evidence": 10,
+        "measurable_impact": 5,
+        "keywords": 5,
+        "structure": 5
+      },
+      "score_reason": "The candidate lacks the core backend requirements (Django, PostgreSQL, Docker, pytest) specified in the JD, though they have basic Python and web development experience.",
+      "missing_skills": [
+        {
+          "skill": "Django",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "Django REST Framework",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "PostgreSQL",
+          "jd_evidence": "Working knowledge of PostgreSQL, including schema design and query optimisation"
+        },
+        {
+          "skill": "Docker",
+          "jd_evidence": "Experience with Docker for local development"
+        },
+        {
+          "skill": "pytest",
+          "jd_evidence": "Comfortable writing unit and integration tests with pytest"
+        },
+        {
+          "skill": "Celery",
+          "jd_evidence": "Familiarity with Celery or another task queue"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+          "problem": "Vague description lacking technical depth or specific outcomes."
+        },
+        {
+          "original": "Made a small Python script to clean CSV files for a class assignment.",
+          "problem": "Academic assignment lacks professional relevance and impact."
+        },
+        {
+          "original": "Worked on the company website and fixed bugs.",
+          "problem": "Lacks specific details on technologies used or the nature of the bugs fixed."
+        },
+        {
+          "original": "Helped the team with testing.",
+          "problem": "Vague contribution; does not specify testing frameworks or methodologies."
+        }
+      ],
+      "red_flags": [
+        "Objective statement is generic and adds no value.",
+        "Lack of backend-specific projects or experience.",
+        "Internship bullet points are too brief and lack professional impact."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+        "improved": "Developed a web project utilizing HTML, CSS, and JavaScript to implement interactive front-end components.",
+        "why_better": "Replaces the weak verb 'did' with 'developed' and specifies the role of the technologies used.",
+        "added_metric": false
+      },
+      {
+        "original": "Made a small Python script to clean CSV files for a class assignment.",
+        "improved": "Engineered a Python script to automate the cleaning and processing of CSV data for academic assignments.",
+        "why_better": "Uses professional terminology like 'engineered' and 'automate' to describe the script's function.",
+        "added_metric": false
+      },
+      {
+        "original": "Worked on the company website and fixed bugs.",
+        "improved": "Collaborated on the company website codebase, identifying and resolving functional bugs to improve site performance.",
+        "why_better": "Uses stronger action verbs and clarifies the impact of the bug fixes on the website.",
+        "added_metric": false
+      },
+      {
+        "original": "Helped the team with testing.",
+        "improved": "Assisted the development team in executing testing procedures to ensure the quality and stability of web features.",
+        "why_better": "Replaces 'helped' with 'assisted' and clarifies that the testing was focused on quality and stability.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 35, 6 missing, 4 rewrites"
+}

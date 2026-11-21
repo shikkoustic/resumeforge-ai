@@ -1,0 +1,71 @@
+{
+  "case": {
+    "no": 6,
+    "type": "Normal",
+    "resume": "resume_D_keyword_stuffed.txt",
+    "jd": "jd_backend_django.txt",
+    "short_input": "Keyword-stuffed resume vs Backend JD",
+    "expected": "Hard skills score high but project evidence low; red flag for skills with no supporting project"
+  },
+  "result": {
+    "analysis": {
+      "status": "ok",
+      "match_score": 55,
+      "score_breakdown": {
+        "hard_skills": 25,
+        "project_evidence": 10,
+        "measurable_impact": 0,
+        "keywords": 10,
+        "structure": 10
+      },
+      "score_reason": "The candidate possesses core required skills like Python, Django, and PostgreSQL, but the resume lacks specific project evidence demonstrating these skills in a professional or complex context, and there is a complete absence of measurable impact metrics.",
+      "missing_skills": [
+        {
+          "skill": "Django REST Framework",
+          "jd_evidence": "Hands-on experience building web services with Django and Django REST Framework"
+        },
+        {
+          "skill": "pytest",
+          "jd_evidence": "Comfortable writing unit and integration tests with pytest"
+        },
+        {
+          "skill": "Celery",
+          "jd_evidence": "Familiarity with Celery or another task queue"
+        }
+      ],
+      "weak_bullet_ids": [
+        {
+          "original": "- Online shopping website.",
+          "problem": "Lacks technical depth, stack details, and measurable outcomes."
+        },
+        {
+          "original": "- Chat application.",
+          "problem": "Lacks technical depth, stack details, and measurable outcomes."
+        }
+      ],
+      "red_flags": [
+        "Resume contains an excessive list of skills (keyword stuffing) without evidence of application.",
+        "No measurable impact or metrics provided for projects.",
+        "Projects are described with extremely vague, generic titles.",
+        "CGPA is below the typical threshold for competitive internship roles."
+      ]
+    },
+    "rewrites": [
+      {
+        "original": "- Online shopping website.",
+        "improved": "Developed an online shopping platform utilizing Node.js and MongoDB to manage product inventory and user transactions.",
+        "why_better": "Replaces the vague description with specific backend technologies listed in the resume skills section.",
+        "added_metric": false
+      },
+      {
+        "original": "- Chat application.",
+        "improved": "Engineered a real-time chat application using Express and WebSocket protocols to facilitate seamless user communication.",
+        "why_better": "Uses stronger action verbs and specifies the backend framework used for the application.",
+        "added_metric": false
+      }
+    ],
+    "invalid": false
+  },
+  "verdict": "REVIEW",
+  "note": "score 55, 3 missing, 2 rewrites"
+}

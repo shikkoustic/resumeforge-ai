@@ -10,55 +10,71 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 25,
+      "match_score": 35,
       "score_breakdown": {
         "hard_skills": 10,
-        "project_evidence": 5,
-        "measurable_impact": 5,
-        "keywords": 0,
-        "structure": 5
+        "project_evidence": 0,
+        "measurable_impact": 15,
+        "keywords": 2,
+        "structure": 8
       },
-      "score_reason": "The candidate is a Mechanical Engineering student applying for a Software Development role with minimal relevant technical experience or core CS skills.",
+      "score_reason": "Resume meets only basic Python requirement; lacks data structures, OOP, Git, and software\u2011focused projects. Some measurable impact present, but overall relevance to software role is low.",
       "missing_skills": [
         {
-          "skill": "Data Structures and Algorithms",
+          "skill": "Solid grasp of data structures and algorithms",
           "jd_evidence": "Solid grasp of data structures and algorithms"
         },
         {
-          "skill": "Java or C++",
-          "jd_evidence": "Proficiency in at least one of Java, C++ or Python"
-        },
-        {
-          "skill": "Object-oriented design",
+          "skill": "Understanding of object-oriented design",
           "jd_evidence": "Understanding of object-oriented design"
         },
         {
-          "skill": "Git",
+          "skill": "Familiarity with version control using Git",
           "jd_evidence": "Familiarity with version control using Git"
         }
       ],
       "weak_bullet_ids": [
         {
+          "original": "Designed a go-kart chassis in SolidWorks, reduced weight by 12% against the previous year's frame.",
+          "problem": "Mechanical design project not relevant to software engineering role."
+        },
+        {
+          "original": "Ran thermal simulation of a heat exchanger in ANSYS for a semester project.",
+          "problem": "Thermal simulation project unrelated to required programming skills."
+        },
+        {
           "original": "Studied the assembly line and documented cycle times for 6 stations.",
-          "problem": "Describes passive observation rather than active contribution or technical software development impact."
+          "problem": "Internship duties focus on manufacturing processes, not software development."
         }
       ],
       "red_flags": [
-        "Candidate's academic background (Mechanical Engineering) is misaligned with the SDE role requirements.",
-        "Lack of software development projects or coding experience.",
-        "Resume focuses entirely on mechanical tools (SolidWorks, ANSYS) which are irrelevant to the SDE job description."
+        "Only basic Python listed; no evidence of data structures/algorithms knowledge",
+        "No experience with Java, C++, or Git",
+        "Resume projects are mechanical, not software\u2011related"
       ]
     },
     "rewrites": [
       {
-        "original": "Studied the assembly line and documented cycle times for 6 stations.",
-        "improved": "Analyzed assembly line efficiency by documenting and auditing cycle times across 6 production stations to identify operational bottlenecks.",
-        "why_better": "Replaces passive 'studied' with active 'analyzed' and clarifies the purpose of the documentation, highlighting analytical skills relevant to SDE roles.",
+        "original": "Designed a go-kart chassis in SolidWorks, reduced weight by 12% against the previous year's frame.",
+        "improved": "Optimized go\u2011kart chassis in SolidWorks, achieving 12% weight reduction versus prior frame, demonstrating CAD\u2011driven design efficiency.",
+        "why_better": "Uses stronger verb 'Optimized', highlights CAD tool usage and quantifiable 12% reduction, framing the work as analytical problem\u2011solving relevant to software engineering.",
+        "added_metric": true
+      },
+      {
+        "original": "Ran thermal simulation of a heat exchanger in ANSYS for a semester project.",
+        "improved": "Conducted ANSYS thermal simulation of a heat exchanger to assess performance under varied conditions.",
+        "why_better": "Replaces weak verb 'Ran' with 'Conducted', specifies the simulation purpose, emphasizing analytical and technical skills without adding new data.",
         "added_metric": false
+      },
+      {
+        "original": "Studied the assembly line and documented cycle times for 6 stations.",
+        "improved": "Analyzed assembly line workflow, logged cycle times for 6 stations in Excel, highlighting potential efficiency gains.",
+        "why_better": "Starts with action verb 'Analyzed', mentions Excel tool, retains metric of 6 stations, and frames the task as data\u2011driven analysis applicable to software roles.",
+        "added_metric": true
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 25, 4 missing, 1 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 25; DSA, Java/C++, OOP, Git all flagged; no coding experience fabricated"
 }

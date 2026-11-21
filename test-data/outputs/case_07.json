@@ -10,53 +10,49 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 65,
+      "match_score": 84,
       "score_breakdown": {
         "hard_skills": 30,
-        "project_evidence": 15,
-        "measurable_impact": 5,
-        "keywords": 8,
-        "structure": 7
+        "project_evidence": 25,
+        "measurable_impact": 15,
+        "keywords": 6,
+        "structure": 8
       },
-      "score_reason": "The candidate meets core technical requirements like Java and DSA, but lacks evidence of object-oriented design application and professional experience. The resume is very sparse for a B.Tech student.",
+      "score_reason": "Resume covers most required hard skills, provides a relevant Java project and a measurable LeetCode count, but lacks explicit OOP design mention and many role\u2011specific keywords; structure is concise but could be richer.",
       "missing_skills": [
         {
-          "skill": "Object-oriented design",
+          "skill": "Understanding of object-oriented design",
           "jd_evidence": "Understanding of object-oriented design"
         }
       ],
       "weak_bullet_ids": [
         {
-          "original": "Built a command line to-do manager in Java with file persistence.",
-          "problem": "Lacks measurable impact or specific technical depth regarding the implementation."
+          "original": "- Built a command line to-do manager in Java with file persistence.",
+          "problem": "No measurable impact or outcome described."
         },
         {
           "original": "Volunteer, Technical Fest",
-          "problem": "Vague entry; lacks description of responsibilities or contributions."
+          "problem": "Vague responsibility; lacks relevance to software development role."
         }
       ],
-      "red_flags": [
-        "Resume is extremely brief for a B.Tech student",
-        "No mention of internships or professional work experience",
-        "Lack of detail on technical projects beyond basic functionality"
-      ]
+      "red_flags": []
     },
     "rewrites": [
       {
-        "original": "Built a command line to-do manager in Java with file persistence.",
-        "improved": "Engineered a Java-based command-line to-do manager featuring persistent data storage using file I/O operations.",
-        "why_better": "Replaces the generic 'built' with 'engineered' and clarifies the technical implementation of file persistence.",
+        "original": "- Built a command line to-do manager in Java with file persistence.",
+        "improved": "Developed a Java command\u2011line to\u2011do manager that persistently stores tasks in files.",
+        "why_better": "Uses a stronger verb and clearly describes the functionality created, aligning with software development skills.",
         "added_metric": false
       },
       {
         "original": "Volunteer, Technical Fest",
-        "improved": "Served as a volunteer for the Technical Fest, assisting in the coordination and execution of event logistics.",
-        "why_better": "Provides context to the role by specifying the nature of the contribution to the event.",
+        "improved": "Volunteered to support technical fest operations, assisting with event logistics and technical setup.",
+        "why_better": "Specifies the actions taken and ties the experience to relevant technical responsibilities.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 65, 1 missing, 2 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 65; credits DSA work, flags the absent internship"
 }

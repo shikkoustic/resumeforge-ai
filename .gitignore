@@ -9,3 +9,8 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+streamlit-secrets.local.toml
+screenshot_*.png
+shot_*.png
+docs/_m2.html
+docs/_techreport.html

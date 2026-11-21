@@ -1,0 +1,33 @@
+{
+  "case": {
+    "no": 12,
+    "type": "Invalid",
+    "resume": "resume_J_idk.txt",
+    "jd": "jd_sde_intern.txt",
+    "short_input": "Resume is the word 'idk'",
+    "expected": "status invalid_input, score 0, empty lists, no generic praise"
+  },
+  "result": {
+    "analysis": {
+      "status": "invalid_input",
+      "match_score": 0,
+      "score_breakdown": {
+        "hard_skills": 0,
+        "project_evidence": 0,
+        "measurable_impact": 0,
+        "keywords": 0,
+        "structure": 0
+      },
+      "score_reason": "The provided resume content is insufficient and does not contain professional experience, skills, or educational background.",
+      "missing_skills": [],
+      "weak_bullet_ids": [],
+      "red_flags": [
+        "Resume content is empty or non-professional"
+      ]
+    },
+    "rewrites": [],
+    "invalid": true
+  },
+  "verdict": "Pass",
+  "note": "refused as invalid, score 0"
+}

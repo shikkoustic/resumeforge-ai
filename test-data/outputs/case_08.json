@@ -10,15 +10,15 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 35,
+      "match_score": 29,
       "score_breakdown": {
-        "hard_skills": 10,
-        "project_evidence": 10,
-        "measurable_impact": 5,
-        "keywords": 5,
-        "structure": 5
+        "hard_skills": 7,
+        "project_evidence": 0,
+        "measurable_impact": 15,
+        "keywords": 0,
+        "structure": 7
       },
-      "score_reason": "The candidate lacks the core backend requirements (Django, PostgreSQL, Docker, pytest) specified in the JD, though they have basic Python and web development experience.",
+      "score_reason": "Resume shows Python but lacks all other required backend skills, no relevant Django/REST/DB/Docker/pytest/Celery experience, only one measurable impact, minimal keyword match, and average readability.",
       "missing_skills": [
         {
           "skill": "Django",
@@ -47,56 +47,56 @@
       ],
       "weak_bullet_ids": [
         {
-          "original": "Did a project on web development using HTML, CSS and some JavaScript.",
-          "problem": "Vague description lacking technical depth or specific outcomes."
-        },
-        {
-          "original": "Made a small Python script to clean CSV files for a class assignment.",
-          "problem": "Academic assignment lacks professional relevance and impact."
-        },
-        {
           "original": "Worked on the company website and fixed bugs.",
-          "problem": "Lacks specific details on technologies used or the nature of the bugs fixed."
+          "problem": "Vague description; no specific contribution or impact quantified."
         },
         {
           "original": "Helped the team with testing.",
-          "problem": "Vague contribution; does not specify testing frameworks or methodologies."
+          "problem": "Generic; lacks details on testing scope, tools used, or outcomes."
+        },
+        {
+          "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+          "problem": "Unclear objectives, no measurable results, and no relevance to backend role."
+        },
+        {
+          "original": "Made a small Python script to clean CSV files for a class assignment.",
+          "problem": "Minor task with no impact metrics; does not demonstrate backend development skills."
         }
       ],
       "red_flags": [
-        "Objective statement is generic and adds no value.",
-        "Lack of backend-specific projects or experience.",
-        "Internship bullet points are too brief and lack professional impact."
+        "Missing all core backend technologies required for the role (Django, DRF, PostgreSQL, Docker, pytest, Celery)",
+        "Internship duration only one month with limited responsibilities",
+        "Objective statement is generic and not tailored to backend development"
       ]
     },
     "rewrites": [
       {
-        "original": "Did a project on web development using HTML, CSS and some JavaScript.",
-        "improved": "Developed a web project utilizing HTML, CSS, and JavaScript to implement interactive front-end components.",
-        "why_better": "Replaces the weak verb 'did' with 'developed' and specifies the role of the technologies used.",
-        "added_metric": false
-      },
-      {
-        "original": "Made a small Python script to clean CSV files for a class assignment.",
-        "improved": "Engineered a Python script to automate the cleaning and processing of CSV data for academic assignments.",
-        "why_better": "Uses professional terminology like 'engineered' and 'automate' to describe the script's function.",
-        "added_metric": false
-      },
-      {
         "original": "Worked on the company website and fixed bugs.",
-        "improved": "Collaborated on the company website codebase, identifying and resolving functional bugs to improve site performance.",
-        "why_better": "Uses stronger action verbs and clarifies the impact of the bug fixes on the website.",
+        "improved": "Resolved website bugs in Brightline Softwares\u2019 site, enhancing page functionality and reducing error occurrences.",
+        "why_better": "Uses stronger verb 'resolved', specifies the context (company website) and the impact (enhanced functionality) without adding unsupported metrics.",
         "added_metric": false
       },
       {
         "original": "Helped the team with testing.",
-        "improved": "Assisted the development team in executing testing procedures to ensure the quality and stability of web features.",
-        "why_better": "Replaces 'helped' with 'assisted' and clarifies that the testing was focused on quality and stability.",
+        "improved": "Performed functional testing of new site features, logging defects and supporting the development team\u2019s QA process.",
+        "why_better": "Clarifies the testing activity, mentions defect logging and QA support, providing concrete actions and outcomes.",
+        "added_metric": false
+      },
+      {
+        "original": "Did a project on web development using HTML, CSS and some JavaScript.",
+        "improved": "Developed a static web page using HTML, CSS, and JavaScript to showcase front\u2011end development skills.",
+        "why_better": "Replaces vague phrasing with specific action and technologies, highlighting the purpose of the project.",
+        "added_metric": false
+      },
+      {
+        "original": "Made a small Python script to clean CSV files for a class assignment.",
+        "improved": "Implemented a Python script to clean and standardize CSV files, streamlining data preparation for a class assignment.",
+        "why_better": "Specifies the script\u2019s function and its benefit (streamlining data prep), using precise language appropriate for a backend role.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 35, 6 missing, 4 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 35; Django, DRF, PostgreSQL, Docker, pytest, Celery all flagged missing"
 }

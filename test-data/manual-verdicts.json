@@ -1,12 +1,12 @@
 {
-  "_comment": "Verdicts for cases the automated checks mark REVIEW. Assigned by reading the saved output in test-data/outputs/ against the case's stated expectation. Failures are recorded, not hidden.",
-  "1":  {"verdict": "Pass", "note": "score 52; flagged TypeScript, REST, Jest, CI/CD; 3 rewrites, none invented a metric"},
-  "2":  {"verdict": "Fail", "note": "score 92 correct, but red flag claims the May-July 2025 internship is 'in the future' - it is Nov 2026"},
-  "3":  {"verdict": "Pass", "note": "score 92; hard skills 40/40 and impact 15/15; only the stakeholder-communication requirement missing"},
-  "4":  {"verdict": "Pass", "note": "score 15; all 6 frontend skills listed missing; no web experience invented"},
-  "5":  {"verdict": "Pass", "note": "score 25; DSA, Java/C++, OOP, Git all flagged; no coding experience fabricated"},
-  "6":  {"verdict": "Pass", "note": "hard skills 25/40 but project evidence 10/25; explicitly flags keyword stuffing"},
-  "7":  {"verdict": "Pass", "note": "score 65; credits DSA work, flags the absent internship"},
-  "8":  {"verdict": "Pass", "note": "score 35; Django, DRF, PostgreSQL, Docker, pytest, Celery all flagged missing"},
-  "10": {"verdict": "Fail", "note": "a one-line resume scored 35 with structure 10/10 and hard skills 20/40; over-scores near-empty input"}
+  "_comment": "Verdicts for cases the automated checks mark REVIEW. Assigned by reading the saved output in test-data/outputs/ against the case's stated expectation. Re-done on 21 Nov 2026 after the primary model moved to openai/gpt-oss-120b on Groq; the previous notes described the gemini-3.1-flash-lite run and no longer applied. Failures are recorded, not hidden.",
+  "1":  {"verdict": "Pass", "note": "score 61; TypeScript, REST, responsive CSS and Jest all flagged; 3 rewrites, no invented metric. Weakness: red_flags came back empty although the resume has a generic objective statement"},
+  "2":  {"verdict": "Pass", "note": "score 95; only cross-browser testing missing. The 'internship is in the future' hallucination seen on Gemini did not occur"},
+  "3":  {"verdict": "Pass", "note": "score 97; hard skills 40/40 and impact 15/15, consistent with a resume full of stated metrics"},
+  "4":  {"verdict": "Pass", "note": "score 29; all 7 frontend requirements listed missing; no web experience invented"},
+  "5":  {"verdict": "Pass", "note": "score 35; DSA, OOP and Git flagged; no software experience fabricated from a mechanical resume"},
+  "6":  {"verdict": "Pass", "note": "hard skills 27/40 but project evidence 0/25; the 30-item skill list is not taken at face value"},
+  "7":  {"verdict": "Fail", "note": "score 84 with project evidence 25/25 for a CLI to-do manager and LeetCode practice, and no internship. Over-credits thin projects; expected a mid score"},
+  "8":  {"verdict": "Pass", "note": "score 29; Django, DRF, PostgreSQL, Docker, pytest and Celery all flagged. Inconsistency: the same resume scored impact 10/15 in case 1 but 15/15 here"},
+  "10": {"verdict": "Pass", "note": "score 12 with structure 2/10 and no invented projects; the over-scoring of near-empty resumes seen on Gemini is fixed"}
 }

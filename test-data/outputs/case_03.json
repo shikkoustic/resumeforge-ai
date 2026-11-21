@@ -10,42 +10,39 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 92,
+      "match_score": 97,
       "score_breakdown": {
         "hard_skills": 40,
         "project_evidence": 25,
         "measurable_impact": 15,
-        "keywords": 7,
-        "structure": 5
+        "keywords": 8,
+        "structure": 9
       },
-      "score_reason": "The candidate demonstrates strong alignment with the JD, possessing all required technical skills and providing quantifiable evidence of impact in both projects and internships.",
+      "score_reason": "Strong alignment on core hard skills, relevant projects/internship, and measurable impact. Minor gaps in specific sub\u2011skills (joins/window functions, Power BI, pivot tables, lookups) and a few missing role\u2011specific keywords reduce keyword score slightly.",
       "missing_skills": [
         {
-          "skill": "Ability to present findings clearly to non-technical stakeholders",
-          "jd_evidence": "Ability to present findings clearly to non-technical stakeholders"
-        }
-      ],
-      "weak_bullet_ids": [
+          "skill": "joins, window functions and aggregation",
+          "jd_evidence": "Strong SQL, including joins, window functions and aggregation"
+        },
         {
-          "original": "B.Tech Computer Science (2022-2026) | CGPA 8.3",
-          "problem": "Lacks detail on relevant coursework or academic achievements."
+          "skill": "Power BI",
+          "jd_evidence": "Experience building dashboards in Tableau or Power BI"
+        },
+        {
+          "skill": "pivot tables",
+          "jd_evidence": "Advanced Excel including pivot tables and lookups"
+        },
+        {
+          "skill": "lookups",
+          "jd_evidence": "Advanced Excel including pivot tables and lookups"
         }
       ],
-      "red_flags": [
-        "Resume lacks a dedicated 'Education' section header, merging it with contact info.",
-        "No mention of soft skills or communication experience relevant to stakeholder management."
-      ]
+      "weak_bullet_ids": [],
+      "red_flags": []
     },
-    "rewrites": [
-      {
-        "original": "B.Tech Computer Science (2022-2026) | CGPA 8.3",
-        "improved": "B.Tech in Computer Science (2022-2026) with a CGPA of 8.3, focusing on data-driven coursework and analytical problem solving.",
-        "why_better": "Replaces a passive header with an active description that highlights the academic foundation relevant to a Data Analyst role.",
-        "added_metric": false
-      }
-    ],
+    "rewrites": [],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 92, 1 missing, 1 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "score 92; hard skills 40/40 and impact 15/15; only the stakeholder-communication requirement missing"
 }

@@ -10,51 +10,56 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 35,
+      "match_score": 12,
       "score_breakdown": {
-        "hard_skills": 20,
+        "hard_skills": 8,
         "project_evidence": 0,
         "measurable_impact": 0,
-        "keywords": 5,
-        "structure": 10
+        "keywords": 2,
+        "structure": 2
       },
-      "score_reason": "The resume is extremely sparse, lacking evidence of projects, data structures knowledge, or version control experience required for the role.",
+      "score_reason": "Very limited information; only Python skill matches one requirement. No projects, impact metrics, or other required skills. Structure is minimal.",
       "missing_skills": [
         {
-          "skill": "Data structures and algorithms",
+          "skill": "Solid grasp of data structures and algorithms",
           "jd_evidence": "Solid grasp of data structures and algorithms"
         },
         {
-          "skill": "Object-oriented design",
+          "skill": "Understanding of object-oriented design",
           "jd_evidence": "Understanding of object-oriented design"
         },
         {
-          "skill": "Git",
+          "skill": "Familiarity with version control using Git",
           "jd_evidence": "Familiarity with version control using Git"
+        },
+        {
+          "skill": "Willingness to learn a new stack quickly",
+          "jd_evidence": "Willingness to learn a new stack quickly"
         }
       ],
       "weak_bullet_ids": [
         {
-          "original": "Knows Python.",
-          "problem": "Lacks context, depth, or application of the skill; no mention of projects or professional experience."
+          "original": "Rahul. B.Tech CSE student. Knows Python.",
+          "problem": "Too brief, no details on experience, projects, or measurable outcomes"
         }
       ],
       "red_flags": [
-        "Resume lacks any project or internship experience",
-        "No mention of technical achievements or problem-solving outcomes",
-        "Extremely brief content suggests lack of preparation for a competitive SDE internship"
+        "Resume lacks any project or internship evidence",
+        "Missing most required hard skills",
+        "No measurable impact or quantifiable results",
+        "Poor structure and readability"
       ]
     },
     "rewrites": [
       {
-        "original": "Knows Python.",
-        "improved": "Utilized Python to implement core programming concepts and algorithmic problem-solving within B.Tech CSE coursework.",
-        "why_better": "Replaces the passive 'knows' with an active verb and contextualizes the skill within the academic environment provided.",
+        "original": "Rahul. B.Tech CSE student. Knows Python.",
+        "improved": "Pursuing B.Tech in Computer Science and Engineering, regularly utilizing Python for academic projects and problem\u2011solving assignments.",
+        "why_better": "Provides degree context, specifies active use of Python in coursework, and replaces the vague statement with a clearer action\u2011method description.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "REVIEW",
-  "note": "score 35, 3 missing, 1 rewrites"
+  "auto_verdict": "REVIEW",
+  "auto_note": "a one-line resume scored 35 with structure 10/10 and hard skills 20/40; over-scores near-empty input"
 }

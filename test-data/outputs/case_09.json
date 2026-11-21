@@ -10,61 +10,53 @@
   "result": {
     "analysis": {
       "status": "ok",
-      "match_score": 52,
+      "match_score": 59,
       "score_breakdown": {
         "hard_skills": 20,
-        "project_evidence": 15,
-        "measurable_impact": 7,
-        "keywords": 5,
-        "structure": 5
+        "project_evidence": 20,
+        "measurable_impact": 8,
+        "keywords": 4,
+        "structure": 7
       },
-      "score_reason": "The candidate has core React and Node.js skills but lacks critical requirements like TypeScript, CSS, and testing frameworks. The resume structure is informal and lacks professional depth.",
+      "score_reason": "Partial alignment: core JavaScript/React skills present, but key requirements like TypeScript, REST integration details, responsive CSS, and unit testing are missing. Projects show relevance but limited measurable outcomes and keyword coverage.",
       "missing_skills": [
         {
-          "skill": "TypeScript",
+          "skill": "Experience with TypeScript in a real project",
           "jd_evidence": "Experience with TypeScript in a real project"
         },
         {
-          "skill": "Responsive CSS",
+          "skill": "Familiarity with REST API integration and handling asynchronous state",
+          "jd_evidence": "Familiarity with REST API integration and handling asynchronous state"
+        },
+        {
+          "skill": "Working knowledge of responsive CSS and cross-browser testing",
           "jd_evidence": "Working knowledge of responsive CSS and cross-browser testing"
         },
         {
-          "skill": "Unit Testing (Jest)",
+          "skill": "Exposure to unit testing with Jest or a similar framework",
           "jd_evidence": "Exposure to unit testing with Jest or a similar framework"
         }
       ],
       "weak_bullet_ids": [
         {
-          "original": "Maine ek e-commerce website banayi thi React aur Node.js use karke, jisme payment gateway bhi integrate kiya tha.",
-          "problem": "Use of informal language (Hinglish) and lack of professional tone."
-        },
-        {
-          "original": "Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.",
-          "problem": "Vague description; lacks specific technical details or outcomes."
+          "original": "Intern, Softcore Solutions, June 2025 - July 2025 - Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.",
+          "problem": "Vague description; lacks specific technologies, responsibilities, and measurable impact."
         }
       ],
       "red_flags": [
-        "Use of informal language (Hinglish) in project descriptions",
-        "Lack of professional formatting and standard resume structure",
-        "Missing critical technical requirements like TypeScript and Testing"
+        "Resume mixes Hindi and English, which may affect ATS parsing"
       ]
     },
     "rewrites": [
       {
-        "original": "Maine ek e-commerce website banayi thi React aur Node.js use karke, jisme payment gateway bhi integrate kiya tha.",
-        "improved": "Developed a full-stack e-commerce website using React and Node.js, featuring integrated payment gateway functionality for secure transactions.",
-        "why_better": "Replaces informal language with professional terminology and clearly defines the technical scope of the project.",
-        "added_metric": false
-      },
-      {
-        "original": "Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.",
-        "improved": "Contributed to backend development at Softcore Solutions by designing and implementing RESTful APIs and resolving critical system bugs.",
-        "why_better": "Uses professional action verbs and specifies the nature of the backend work performed during the internship.",
+        "original": "Intern, Softcore Solutions, June 2025 - July 2025 - Company ke backend pe kaam kiya, mostly APIs banayi aur bugs fix kiye.",
+        "improved": "Developed and refined RESTful APIs using Node.js/Express and resolved backend bugs, enhancing system stability during the two\u2011month internship.",
+        "why_better": "Uses specific technologies (Node.js/Express), stronger action verbs, and a clear outcome (enhanced stability) without adding unsupported metrics.",
         "added_metric": false
       }
     ],
     "invalid": false
   },
-  "verdict": "Pass",
-  "note": "content understood, feedback returned in English"
+  "auto_verdict": "Pass",
+  "auto_note": "content understood, feedback returned in English"
 }
