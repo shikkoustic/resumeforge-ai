@@ -27,22 +27,32 @@ if dotenv_file.exists():
             k, v = line.split("=", 1)
             os.environ.setdefault(k.strip(), v.strip())
 
-# Streamlit Cloud exposes secrets as environment variables, but a local
-# .streamlit/secrets.toml does not, so copy anything we recognise across.
-for _name in ("GROQ_API_KEYS", "GEMINI_API_KEYS", "GROQ_API_KEY", "GEMINI_API_KEY"):
-    if _name not in os.environ:
-        try:
-            if _name in st.secrets:
-                os.environ[_name] = st.secrets[_name]
-        except Exception:
-            pass
-
 st.set_page_config(
     page_title="ResumeForge AI",
     page_icon="📄",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+
+# Copy recognised secrets into the environment. This must run AFTER set_page_config:
+# touching st.secrets is a Streamlit command, and when no secrets file exists it emits
+# an error element, which then makes set_page_config "not the first command" and the
+# whole page fails. On Streamlit Cloud secrets always exist, so this only bit locally.
+_secrets_exist = any(
+    (Path(p) / ".streamlit" / "secrets.toml").exists()
+    for p in (Path.home(), Path(__file__).resolve().parent,
+              Path(__file__).resolve().parent.parent)
+) or Path("/mount/src").exists()  # Streamlit Cloud
+
+if _secrets_exist:
+    for _name in ("GROQ_API_KEYS", "GEMINI_API_KEYS", "GROQ_API_KEY", "GEMINI_API_KEY"):
+        if _name not in os.environ:
+            try:
+                if _name in st.secrets:
+                    os.environ[_name] = st.secrets[_name]
+            except Exception:
+                pass
+
 st.markdown(ui.CSS, unsafe_allow_html=True)
 
 

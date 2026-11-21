@@ -1310,6 +1310,73 @@ CSS = """
   section.main, [data-testid="stMain"] {
     scroll-timeline: --mainTimeline block;
   }
+
+  /* -------------------------------------------------------------------------
+     Responsive — tablet and phone
+     The layout was built for desktop only. Below 900px the multi-column grids
+     squeeze text into unreadable strips, so they collapse to a single column.
+     Streamlit's own st.columns do not stack on narrow screens either, so they
+     are forced to full width here too.
+     ------------------------------------------------------------------------- */
+  @media (max-width: 900px) {
+    .rf-preview-grid,
+    .rf-features-grid,
+    .rf-timeline-grid,
+    .rf-ba {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    /* Streamlit lays columns out as flex children that never wrap */
+    div[data-testid="stHorizontalBlock"] {
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+    div[data-testid="stColumn"],
+    div[data-testid="column"] {
+      width: 100% !important;
+      flex: 1 1 100% !important;
+      min-width: 100% !important;
+    }
+
+    .block-container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      padding-top: 1rem !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* The hero is sized for a wide screen; at phone width it eats the fold */
+    .rf-hero-title { font-size: 2.1rem !important; line-height: 1.12 !important; }
+    .rf-hero-desc  { font-size: 0.95rem !important; }
+
+    .rf-card, .rf-feature-card, .rf-timeline-card, .rf-preview-card {
+      padding: 1.05rem 1rem !important;
+      border-radius: 14px !important;
+    }
+
+    /* Big numerals wrap awkwardly next to their "/ 100" suffix */
+    .rf-score-value { font-size: 2.6rem !important; }
+
+    /* Full-width tap targets, comfortably above the 44px minimum */
+    .stButton > button {
+      width: 100% !important;
+      min-height: 46px !important;
+      font-size: 0.95rem !important;
+    }
+
+    .rf-section-title { font-size: 1.15rem !important; }
+
+    /* Nothing should force the page wider than the screen */
+    .rf-preview-card, .rf-card { overflow-x: auto; }
+  }
+
+  /* Never let a long unbroken string create a horizontal scrollbar */
+  .rf-quote, .rf-before, .rf-after, .rf-evidence {
+    overflow-wrap: anywhere;
+  }
+
 </style>
 """
 
@@ -1344,7 +1411,7 @@ def home_preview_card() -> str:
       <div class="rf-preview-grid">
         <div style="text-align:center;padding:1.1rem;background:rgba(255,255,255,0.72);border-radius:18px;border:1px solid rgba(0,0,0,0.05);">
           <div style="font-size:0.75rem;font-weight:700;color:#0071E3;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.45rem;">Match Score</div>
-          <div style="font-size:3.2rem;font-weight:700;color:#1D1D1F;letter-spacing:-0.03em;line-height:1;display:flex;align-items:baseline;justify-content:center;gap:6px;">
+          <div class="rf-score-value" style="font-size:3.2rem;font-weight:700;color:#1D1D1F;letter-spacing:-0.03em;line-height:1;display:flex;align-items:baseline;justify-content:center;gap:6px;">
             <span>84</span><span style="font-size:1.3rem;color:#86868B;font-weight:500;letter-spacing:-0.01em;">/ 100</span>
           </div>
           <div style="font-size:0.8rem;color:#34C759;font-weight:600;margin-top:0.45rem;">● Strong Role Alignment</div>
@@ -1513,7 +1580,7 @@ def score_card(score: int) -> str:
       <div style="font-size:0.78rem;font-weight:700;color:#0071E3;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.45rem;">
         Match Score
       </div>
-      <div style="font-size:3.5rem;font-weight:700;color:#1D1D1F;letter-spacing:-0.03em;line-height:1;margin-bottom:0.55rem;display:flex;align-items:baseline;justify-content:center;gap:6px;font-feature-settings:'tnum' 1;">
+      <div class="rf-score-value" style="font-size:3.5rem;font-weight:700;color:#1D1D1F;letter-spacing:-0.03em;line-height:1;margin-bottom:0.55rem;display:flex;align-items:baseline;justify-content:center;gap:6px;font-feature-settings:'tnum' 1;">
         <span>{score}</span><span style="font-size:1.35rem;color:#86868B;font-weight:500;letter-spacing:-0.01em;">/ 100</span>
       </div>
       <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:980px;background:{status_bg};color:{status_color};font-size:0.82rem;font-weight:600;margin-bottom:0.85rem;">
